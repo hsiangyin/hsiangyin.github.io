@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-baskerville: "Libre Baskerville", Georgia, serif;
+  --font-noto-tc:     "Noto Sans TC", "PingFang TC", sans-serif;
+  --font-poppins:     "Poppins", sans-serif;
+  --font-noto:        "Noto Sans", system-ui, sans-serif;
+
+  /* 自訂斷點：在預設之上增加 3xl (Figma 設計尺寸) */
+  --breakpoint-3xl: 1920px;
+
+  --color-brand:              #1e1e1e;
+  --color-card-bg:            #edeef2;
+  --color-card-gradient-end:  #eef1f6;
+  --color-tag-bg:             #f7f7f7;
+  --color-tag-border:         #e2e5eb;
+  --color-tag-text:           #576376;
+  --color-footer-text:        #585c5f;
+  --color-divider:            #d9d9d9;
+}
+
+/* ─── Global reset ───────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-noto-tc);
+  color: #1e1e1e;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Responsive section padding utility ────────────── */
+/*
+  Breakpoints:
+    Mobile   < 768px  → px 20px
+    Tablet   ≥ 768px  → px 40px
+    Desktop  ≥ 1280px → px 80px
+    Large    ≥ 1920px → px 240px  (Figma exact)
+*/
+@layer utilities {
+  .section-px {
+    padding-inline: 20px;
+
+    @media (width >= 768px) {
+      padding-inline: 40px;
+    }
+
+    @media (width >= 1280px) {
+      padding-inline: 80px;
+      max-width: 1260px;
+      margin-inline: auto;
+    }
+
+    @media (width >= 1920px) {
+      padding-inline: 240px;
+      max-width: none;     /* Figma-exact layout takes over */
+      margin-inline: 0;
+    }
+  }
+}

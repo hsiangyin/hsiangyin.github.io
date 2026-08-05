@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 90">
+<circle id="Ellipse 4" cx="35" cy="35" r="35" fill="#0288D1"/>
+<g id="icons8-linkedin 1" clip-path="url(#clip0_0_4)">
+<circle id="Ellipse 5" cx="35" cy="35" r="24" fill="#0288D1"/>
+<path id="Vector" d="M23 30H28V47H23V30ZM25.485 28H25.457C23.965 28 23 26.888 23 25.499C23 24.08 23.995 23 25.514 23C27.035 23 27.972 24.08 28 25.499C28 26.887 27.035 28 25.485 28ZM47 47H42V37.901C42 35.703 40.775 34.203 38.808 34.203C37.307 34.203 36.495 35.215 36.101 36.193C35.957 36.543 36 37.511 36 38V47H31V30H36V32.616C36.721 31.5 37.85 30 40.738 30C44.316 30 46.999 32.25 46.999 37.274L47 47Z" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_4">
+<rect width="48" height="48" fill="white" transform="translate(11 11)"/>
+</clipPath>
+</defs>
+</svg>

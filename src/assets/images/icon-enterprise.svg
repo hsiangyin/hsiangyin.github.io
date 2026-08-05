@@ -1,0 +1,131 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="245" height="190" viewBox="0 0 245 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon_Enterprise">
+  <!-- Monitor outer frame -->
+  <g filter="url(#filter0_d)">
+    <rect x="32" y="18" width="181" height="128" rx="8" fill="url(#paint0_linear)"/>
+    <rect x="32.5" y="18.5" width="180" height="127" rx="7.5" stroke="#DDE2E9"/>
+  </g>
+  <!-- Monitor stand neck -->
+  <rect x="109" y="146" width="27" height="10" rx="2" fill="#DDE2E9"/>
+  <!-- Monitor stand base -->
+  <rect x="94" y="156" width="57" height="6" rx="3" fill="#DDE2E9"/>
+
+  <!-- Header bar (dark) -->
+  <rect x="32" y="18" width="181" height="22" rx="8" fill="#2B2D31"/>
+  <rect x="32" y="30" width="181" height="10" fill="#2B2D31"/>
+  <!-- Header dots -->
+  <circle cx="46" cy="29" r="3.5" fill="white" fill-opacity="0.25"/>
+  <circle cx="57" cy="29" r="3.5" fill="white" fill-opacity="0.25"/>
+  <circle cx="68" cy="29" r="3.5" fill="white" fill-opacity="0.25"/>
+  <!-- Header title bar -->
+  <rect x="100" y="25" width="64" height="8" rx="2.5" fill="white" fill-opacity="0.15"/>
+
+  <!-- Left sidebar -->
+  <rect x="32" y="40" width="50" height="106" fill="#F4F5F7"/>
+  <!-- Sidebar items -->
+  <rect x="41" y="52" width="32" height="5" rx="2" fill="#2B2D31"/>
+  <rect x="41" y="62" width="26" height="4" rx="1.5" fill="#C8CED7"/>
+  <rect x="41" y="71" width="29" height="4" rx="1.5" fill="#C8CED7"/>
+  <rect x="41" y="84" width="32" height="5" rx="2" fill="#2B2D31"/>
+  <rect x="41" y="94" width="22" height="4" rx="1.5" fill="#C8CED7"/>
+  <rect x="41" y="103" width="28" height="4" rx="1.5" fill="#C8CED7"/>
+  <rect x="41" y="112" width="25" height="4" rx="1.5" fill="#C8CED7"/>
+
+  <!-- Main content area -->
+  <!-- Row 1 card -->
+  <g filter="url(#filter1_d)">
+    <rect x="92" y="48" width="111" height="35" rx="5" fill="url(#paint1_linear)"/>
+    <rect x="92.5" y="48.5" width="110" height="34" rx="4.5" stroke="#DDE2E9"/>
+  </g>
+  <rect x="102" y="57" width="55" height="5" rx="2" fill="#2B2D31"/>
+  <rect x="102" y="66" width="38" height="4" rx="1.5" fill="#C8CED7"/>
+  <!-- Status chip -->
+  <rect x="170" y="57" width="25" height="13" rx="4" fill="#2B2D31"/>
+  <rect x="174" y="61" width="17" height="5" rx="1.5" fill="white" fill-opacity="0.6"/>
+
+  <!-- Row 2 card -->
+  <g filter="url(#filter2_d)">
+    <rect x="92" y="91" width="111" height="35" rx="5" fill="url(#paint2_linear)"/>
+    <rect x="92.5" y="91.5" width="110" height="34" rx="4.5" stroke="#DDE2E9"/>
+  </g>
+  <rect x="102" y="100" width="48" height="5" rx="2" fill="#2B2D31"/>
+  <rect x="102" y="109" width="33" height="4" rx="1.5" fill="#C8CED7"/>
+  <!-- Check circle -->
+  <g filter="url(#filter3_d)">
+    <circle cx="182" cy="108" r="10" fill="#2B2D31"/>
+  </g>
+  <path d="M177 108L180.5 111.5L187 104.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Row 3 card -->
+  <g filter="url(#filter4_d)">
+    <rect x="92" y="134" width="111" height="22" rx="5" fill="url(#paint3_linear)"/>
+    <rect x="92.5" y="134.5" width="110" height="21" rx="4.5" stroke="#DDE2E9"/>
+  </g>
+  <rect x="102" y="141" width="42" height="4" rx="1.5" fill="#2B2D31"/>
+  <rect x="148" y="141" width="22" height="4" rx="1.5" fill="#C8CED7"/>
+  <rect x="174" y="141" width="20" height="4" rx="1.5" fill="#DDE2E9"/>
+</g>
+<defs>
+  <filter id="filter0_d" x="29" y="17" width="187" height="134" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="2"/>
+    <feGaussianBlur stdDeviation="1.5"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0.604 0 0 0 0 0.643 0 0 0 0 0.706 0 0 0 0.28 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+  </filter>
+  <filter id="filter1_d" x="89" y="47" width="117" height="41" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="2"/>
+    <feGaussianBlur stdDeviation="1.5"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0.604 0 0 0 0 0.643 0 0 0 0 0.706 0 0 0 0.28 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+  </filter>
+  <filter id="filter2_d" x="89" y="90" width="117" height="41" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="2"/>
+    <feGaussianBlur stdDeviation="1.5"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0.604 0 0 0 0 0.643 0 0 0 0 0.706 0 0 0 0.28 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+  </filter>
+  <filter id="filter3_d" x="169" y="96" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="2"/>
+    <feGaussianBlur stdDeviation="1.5"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0.604 0 0 0 0 0.643 0 0 0 0 0.706 0 0 0 0.4 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+  </filter>
+  <filter id="filter4_d" x="89" y="133" width="117" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="2"/>
+    <feGaussianBlur stdDeviation="1.5"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0.604 0 0 0 0 0.643 0 0 0 0 0.706 0 0 0 0.28 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+  </filter>
+  <linearGradient id="paint0_linear" x1="122.5" y1="146" x2="122.5" y2="18" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FEFFFF"/>
+    <stop offset="1" stop-color="#EDF0F5"/>
+  </linearGradient>
+  <linearGradient id="paint1_linear" x1="147.5" y1="83" x2="147.5" y2="48" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FEFFFF"/>
+    <stop offset="1" stop-color="#EDF0F5"/>
+  </linearGradient>
+  <linearGradient id="paint2_linear" x1="147.5" y1="126" x2="147.5" y2="91" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FEFFFF"/>
+    <stop offset="1" stop-color="#EDF0F5"/>
+  </linearGradient>
+  <linearGradient id="paint3_linear" x1="147.5" y1="156" x2="147.5" y2="134" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FEFFFF"/>
+    <stop offset="1" stop-color="#EDF0F5"/>
+  </linearGradient>
+</defs>
+</svg>

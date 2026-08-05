@@ -1,0 +1,22 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 89">
+<g id="icons8-gmail 1">
+<path id="Vector" d="M56 27.2L51 29.95L46 34.7V51H53C54.657 51 56 49.657 56 48V27.2Z" fill="url(#paint0_linear_0_9)"/>
+<path id="Vector_2" d="M14 27.2L17.614 28.91L24 34.7V51H17C15.343 51 14 49.657 14 48V27.2Z" fill="#FC413D"/>
+<path id="Union" d="M51.7021 19C54.076 19.0001 55.9999 20.924 56 23.2979V27.2002L35 42.9502L14 27.2002V23.2979C14.0001 20.924 15.924 19.0001 18.2979 19C19.2279 19 20.132 19.3014 20.876 19.8594L24 22.2002L35 30.4502L46 22.2002L49.124 19.8594C49.868 19.3014 50.7721 19 51.7021 19Z" fill="url(#paint1_linear_0_9)"/>
+</g>
+<circle id="Ellipse 4" cx="35" cy="35" r="34.5" stroke="#E7E7E7"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_9" x1="51" y1="27.2" x2="51" y2="51" gradientUnits="userSpaceOnUse">
+<stop offset="0.216346" stop-color="#2EC365"/>
+<stop offset="1" stop-color="#368AFF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_9" x1="14" y1="30.9751" x2="56" y2="30.9751" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF63A0"/>
+<stop offset="0.309524" stop-color="#FC413D"/>
+<stop offset="0.673077" stop-color="#FC413D"/>
+<stop offset="1" stop-color="#FDD809"/>
+</linearGradient>
+</defs>
+</svg>
