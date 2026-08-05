@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import iconWorkflow   from '@/assets/images/icon-workflow.svg'
 import iconEnterprise from '@/assets/images/icon-enterprise.svg'
 import iconService    from '@/assets/images/icon-service.svg'
 import iconDigital    from '@/assets/images/icon-digital.svg'
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden:  { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }

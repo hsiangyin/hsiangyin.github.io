@@ -11,7 +11,7 @@ const ORB_TRANSITION = (duration: number) => ({
   duration,
   repeat: Infinity,
   repeatType: 'mirror' as const,
-  ease: 'easeInOut',
+  ease: 'easeInOut' as const,
 })
 
 export function Layout({ children }: LayoutProps) {

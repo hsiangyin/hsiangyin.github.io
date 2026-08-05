@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import heroTablet   from '@/assets/images/sinopac/hero-tablet.jpg'
 import photoCounter from '@/assets/images/sinopac/img-sinopac-01.png'
 import imgForm       from '@/assets/images/sinopac/img-sinopac-02.png'
 import imgDocuments  from '@/assets/images/sinopac/img-sinopac-03.png'
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden:  { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }

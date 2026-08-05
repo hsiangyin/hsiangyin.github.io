@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import heroTablet     from '@/assets/images/wdopa/hero-tablet.png'
 import screenCall     from '@/assets/images/wdopa/screen-callnumber.png'
 import photoResearch  from '@/assets/images/wdopa/photo-research.png'
 import screenDoc      from '@/assets/images/wdopa/screen-document.png'
 import screenSign     from '@/assets/images/wdopa/screen-signature.png'
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden:  { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }

@@ -17,7 +17,7 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 }
 
 /* ── Color swatch ───────────────────────────────────────── */
-function Swatch({ name, hex, textClass = 'text-[#1e1e1e]' }: { name: string; hex: string; textClass?: string }) {
+function Swatch({ name, hex }: { name: string; hex: string }) {
   return (
     <div className="flex flex-col gap-[8px]">
       <div
@@ -36,19 +36,6 @@ function TypeRow({ label, className, sample = 'The quick brown fox' }: { label: 
     <div className="flex flex-col gap-[4px] py-[16px] border-b border-[#f0f0f0] last:border-0">
       <p className="font-mono text-[11px] text-[#878787] mb-[4px]">{label}</p>
       <p className={className}>{sample}</p>
-    </div>
-  )
-}
-
-/* ── Token row (spacing / radius / shadow) ─────────────── */
-function TokenRow({ name, value, preview }: { name: string; value: string; preview?: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-[16px] py-[12px] border-b border-[#f0f0f0] last:border-0">
-      {preview && <div className="shrink-0">{preview}</div>}
-      <div className="flex flex-col gap-[2px]">
-        <p className="font-mono text-[13px] font-medium text-[#1e1e1e]">{name}</p>
-        <p className="font-mono text-[12px] text-[#878787]">{value}</p>
-      </div>
     </div>
   )
 }

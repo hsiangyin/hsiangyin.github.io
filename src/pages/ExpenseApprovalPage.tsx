@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import heroTablet  from '@/assets/images/dasio/hero-tablet.jpg'
 import photoDasio  from '@/assets/images/dasio/photo-dasio.png'
 import imgDasio01  from '@/assets/images/dasio/img-dasio-01.png'
@@ -7,7 +8,7 @@ import imgDasio03  from '@/assets/images/dasio/img-dasio-03.png'
 import imgDasio04  from '@/assets/images/dasio/img-dasio-04.png'
 import imgDasio05  from '@/assets/images/dasio/img-dasio-05.png'
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden:  { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }
@@ -206,33 +207,16 @@ export function ExpenseApprovalPage() {
             </p>
           </motion.div>
 
-          {'images' in sec ? (
-            <motion.div
-              variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-              className="bg-[#fafafa] rounded-[16px] md:rounded-[24px]
-                         p-[20px] md:p-[30px] xl:p-[40px]
-                         flex flex-col gap-[12px] md:gap-[16px]">
-              {sec.images.map((img, j) => (
-                <img
-                  key={j}
-                  src={img}
-                  alt={sec.alt}
-                  className="block w-full rounded-[12px] mix-blend-multiply"
-                />
-              ))}
-            </motion.div>
-          ) : (
-            <motion.div
-              variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-              className="bg-[#fafafa] rounded-[16px] md:rounded-[24px]
-                         p-[20px] md:p-[30px] xl:p-[40px]">
-              <img
-                src={sec.image}
-                alt={sec.alt}
-                className={`block rounded-[12px] mix-blend-multiply ${'naturalSize' in sec && sec.naturalSize ? 'max-w-full mx-auto' : 'w-full'}`}
-              />
-            </motion.div>
-          )}
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="bg-[#fafafa] rounded-[16px] md:rounded-[24px]
+                       p-[20px] md:p-[30px] xl:p-[40px]">
+            <img
+              src={sec.image}
+              alt={sec.alt}
+              className={`block rounded-[12px] mix-blend-multiply ${'naturalSize' in sec && sec.naturalSize ? 'max-w-full mx-auto' : 'w-full'}`}
+            />
+          </motion.div>
         </section>
       ))}
 
