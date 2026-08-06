@@ -50,9 +50,10 @@ const projects: Project[] = [
 export function FeaturedWorks() {
   return (
     <section
+      id="featured-works"
       className="section-px flex w-full flex-col
-                 gap-[20px] pb-[48px]
-                 md:gap-[40px] md:pb-[60px]
+                 gap-[20px] pb-[48px] scroll-mt-[80px]
+                 md:gap-[40px] md:pb-[60px] md:scroll-mt-[100px]
                  3xl:gap-[60px] 3xl:pb-[80px]"
     >
       <div
