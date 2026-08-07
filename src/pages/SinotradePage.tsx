@@ -11,7 +11,7 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }
 
-const ACCENT = '#C8102E'
+const ACCENT = '#7118d6'
 
 /* ── data ────────────────────────────────────────────── */
 
@@ -24,7 +24,7 @@ const goals = [
 ]
 
 const problems = [
-  { title: '紙本欄位過多',       desc: 'iPad 無法直接照搬' },
+  { title: '紙本欄位過多',       desc: '許多欄位是為紙本審核設計，不是每個都需要出現在數位流程中，需要重新篩選。' },
   { title: '拍照、簽名是獨立流程', desc: '櫃員需要來回切換作業。' },
   { title: '送件後沒有狀態回饋', desc: '無法確認案件是否完成' },
 ]
@@ -57,7 +57,7 @@ const decisions = [
 ]
 
 const outcomes = [
-  { role: '營業員',   desc: '更容易協助客戶完成開戶，也能追蹤後續送件與審核狀態。' },
+  { role: '營業員',   desc: '不需要在紙本、拍照 App、系統之間來回切換，能更順暢地引導客戶完成開戶。' },
   { role: '客戶',   desc: '減少重複填寫相同資料的負擔，開戶流程更清楚。' },
   { role: '對作業流程', desc: '降低紙本錯誤，讓資料、附件與簽名更容易整合。' },
 ]
