@@ -4,6 +4,7 @@ import heroTablet   from '@/assets/images/sinopac/hero-tablet.jpg'
 import photoCounter from '@/assets/images/sinopac/img-sinopac-01.png'
 import imgForm       from '@/assets/images/sinopac/img-sinopac-02.png'
 import imgDocuments  from '@/assets/images/sinopac/img-sinopac-03.png'
+import imgStatus     from '@/assets/images/sinopac/img-sinopac-04.png'
 
 const fadeUp: Variants = {
   hidden:  { opacity: 0, y: 28 },
@@ -29,29 +30,35 @@ const problems = [
 ]
 
 const principles = [
-  { title: '將服務流程串成一條連續任務', desc: 'iPad 無法直接照搬' },
+  { title: '只留下流程真正需要的欄位', desc: '欄位是否保留，取決於它對客戶或櫃員是否還有實際用途，而不是它在紙本上是否存在過。' },
   { title: '把實體流程整合到數位流程',   desc: '拍照 → 簽名 → 送件 應該是一段流程。' },
   { title: '降低流程的不確定性',         desc: '使用者需要知道目前做到哪？下一步是什麼？送件成功了嗎？' },
 ]
 
 const decisions = [
   {
-    title: '將拍照整合到開戶流程',
-    desc:  '在紙本流程時，拍照是額外流程，我把拍照納入開戶流程的一部分，讓櫃員不需要重新切換工作模式，並且順便檢核客戶身分。',
+    title: '重新篩選表單欄位，只留下數位流程真正需要的資訊',
+    desc:  '盤點原始紙本表單後，移除只是為了紙本審核存在、對客戶與櫃員沒有實際用途的欄位，讓填寫流程更精簡，也降低客戶重複填寫相同資料的負擔。',
     image: imgForm,
     alt:   '開戶申請基本資料表單截圖',
   },
   {
-    title: '將拍攝納入同一流程',
-    desc:  '在紙本流程時，拍照是額外流程，我把拍照納入開戶流程的一部分，讓櫃員不需要重新切換工作模式。',
+    title: '把拍照、簽名整合進同一段流程',
+    desc:  '拍照跟簽名原本是紙本流程外的獨立動作，我把它們內嵌到 iPad 開戶流程裡，讓櫃員不需要切換工具或重新確認客戶身分，就能接續完成下一步。',
     image: imgDocuments,
     alt:   '開戶文件執行功能截圖',
+  },
+  {
+    title: '加入送件狀態查詢，讓流程進度可被追蹤',
+    desc:  '送出後不再是黑盒子，櫃員可以直接在系統查看案件目前卡在哪個審核階段，不需要再另外用電話或紙本詢問後台，也能主動回應客戶的進度詢問。',
+    image: imgStatus,
+    alt:   '案件審核進度查詢畫面截圖',
   },
 ]
 
 const outcomes = [
   { role: '營業員',   desc: '更容易協助客戶完成開戶，也能追蹤後續送件與審核狀態。' },
-  { role: '對客戶',   desc: '減少重複填寫相同資料的負擔，開戶流程更清楚。' },
+  { role: '客戶',   desc: '減少重複填寫相同資料的負擔，開戶流程更清楚。' },
   { role: '對作業流程', desc: '降低紙本錯誤，讓資料、附件與簽名更容易整合。' },
 ]
 
@@ -82,7 +89,7 @@ export function SinotradePage() {
           variants={fadeUp} initial="hidden" animate="visible"
           className="font-noto text-[#878787]
                      text-[14px] md:text-[18px] 3xl:text-[24px]">
-          Operational System
+          Process Redesign
         </motion.p>
 
         <motion.h1
@@ -165,7 +172,7 @@ export function SinotradePage() {
           </p>
           <p className="font-noto-tc text-black leading-[1.9]
                         text-[14px] md:text-[17px] 3xl:text-[22px]">
-            這個專案的核心挑戰不是單純把紙本表單搬到螢幕上，而是要先釐清複雜的欄位邏輯，再把它轉化為營業員能順利操作、客戶也能理解的數位流程。
+            把紙本表單搬到螢幕上很容易，真正困難的是先釐清複雜的欄位邏輯，再把它轉化為營業員能順利操作、客戶也能理解的數位流程。
           </p>
         </motion.div>
       </section>
@@ -201,9 +208,9 @@ export function SinotradePage() {
         </motion.h2>
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9] max-w-[900px]
+          className="font-noto-tc text-black leading-[1.9] max-w-[1100px]
                      text-[14px] md:text-[17px] 3xl:text-[22px]">
-          透過數位轉型，逐步取代紙本開戶流程，以 iPad 作為臨櫃開戶載體，提升開戶效率。本專案不僅是將紙本表單搬到數位介面，而是重新設計整體服務流程，讓客戶、櫃檯人員與後台審核都能在同一套流程中順利協作。
+          透過數位轉型，逐步取代紙本開戶流程，以 iPad 作為臨櫃開戶載體，提升開戶效率。紙本表單搬到數位介面只是最表面的改動，這個專案真正要做的是重新設計整體服務流程，讓客戶、櫃檯人員與後台審核都能在同一套流程中順利協作。
         </motion.p>
 
         <motion.div
@@ -248,13 +255,19 @@ export function SinotradePage() {
           className="font-noto-tc font-bold text-black
                      text-[18px] leading-[1.5]
                      md:text-[26px] xl:text-[30px] 3xl:text-[40px]">
-          專業感與快速感，來自流程節奏與角色分工，而不只是操作速度。
+          操作速度快不代表專業，真正決定專業感與快速感的，是流程節奏與角色分工。
         </motion.h2>
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="font-noto-tc text-black leading-[1.9]
                      text-[14px] md:text-[17px] 3xl:text-[22px]">
           我先與 PM 一起重新盤點整個開戶流程。
+        </motion.p>
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc text-black leading-[1.9]
+                     text-[14px] md:text-[17px] 3xl:text-[22px]">
+          觀察營業員實際操作紙本流程後發現，「專業感」被打斷的關鍵時刻，多半發生在紙本、拍照與系統之間來回確認的當下，操作速度快慢反而不是重點——每一次切換，都是一次讓客戶感受到流程不順暢的機會。
         </motion.p>
 
         <motion.div
@@ -266,7 +279,7 @@ export function SinotradePage() {
           </p>
           <p className="font-noto-tc text-black leading-[1.8]
                         text-[14px] md:text-[17px] 3xl:text-[22px]">
-            <span className="font-semibold">② 流程盤點</span>：重新整理流程，而不是照著紙本順序搬到 iPad。
+            <span className="font-semibold">② 流程盤點</span>：把整個流程重新梳理過一次，不照搬紙本順序直接搬上 iPad。
           </p>
         </motion.div>
 
@@ -276,7 +289,7 @@ export function SinotradePage() {
                      px-[20px] py-[20px] md:px-[40px] md:py-[24px]">
           <p className="font-noto-tc text-black leading-[1.8] text-center
                         text-[13px] md:text-[16px] xl:text-[18px] 3xl:text-[24px]">
-            客戶 → 填寫資料 → 確認身分 → 拍攝證件 → 電子簽名 → 送件 → 查詢送審
+            客戶 → 確認身分 → 拍攝證件 → 填寫資料 → 電子簽名 → 送件 → 查詢送審
           </p>
         </motion.div>
 
@@ -310,7 +323,7 @@ export function SinotradePage() {
           className="font-noto-tc font-semibold text-black
                      text-[20px] leading-[1.5]
                      md:text-[28px] xl:text-[32px] 3xl:text-[44px]">
-          真正的問題，不是紙本，而是服務流程沒有被重新設計。
+          真正的問題不是紙本，而是服務流程沒有被重新設計。
         </motion.h2>
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
@@ -337,7 +350,9 @@ export function SinotradePage() {
                 </p>
               </div>
               <p className="font-noto-tc text-black leading-[1.6]
-                            text-[13px] md:text-[15px] 3xl:text-[20px]">
+                            pl-[40px] text-[13px]
+                            md:pl-[46px] md:text-[15px]
+                            3xl:pl-[58px] 3xl:text-[20px]">
                 {p.desc}
               </p>
             </div>
@@ -355,7 +370,7 @@ export function SinotradePage() {
           className="font-noto-tc font-semibold text-black
                      text-[16px] leading-[1.5]
                      md:text-[22px] xl:text-[26px] 3xl:text-[36px]">
-          “ 重新設計開戶流程，而不是重新設計表單。”
+          「重新設計的對象是開戶流程，不是表單本身。」
         </motion.p>
       </section>
 
@@ -393,7 +408,9 @@ export function SinotradePage() {
                 </p>
               </div>
               <p className="font-noto-tc text-black leading-[1.6]
-                            text-[13px] md:text-[15px] 3xl:text-[20px]">
+                            pl-[40px] text-[13px]
+                            md:pl-[46px] md:text-[15px]
+                            3xl:pl-[58px] 3xl:text-[20px]">
                 {p.desc}
               </p>
             </div>
@@ -429,17 +446,19 @@ export function SinotradePage() {
                            text-[14px] md:text-[17px] 3xl:text-[22px]">
                 {d.desc}
               </motion.p>
-              <motion.div
-                variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                className="bg-[#fafafa] flex items-center justify-center
-                           rounded-[16px] md:rounded-[24px]
-                           p-[16px] md:p-[24px] xl:p-[32px]">
-                <img
-                  src={d.image}
-                  alt={d.alt}
-                  className="block w-full max-w-[900px] rounded-[8px] md:rounded-[12px]"
-                />
-              </motion.div>
+              {d.image && (
+                <motion.div
+                  variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                  className="bg-[#fafafa] flex items-center justify-center
+                             rounded-[16px] md:rounded-[24px]
+                             p-[16px] md:p-[24px] xl:p-[32px]">
+                  <img
+                    src={d.image}
+                    alt={d.alt}
+                    className="block w-full max-w-[900px] rounded-[8px] md:rounded-[12px]"
+                  />
+                </motion.div>
+              )}
             </div>
           ))}
         </div>
@@ -447,9 +466,9 @@ export function SinotradePage() {
 
       {/* ── 10. Outcomes ───────────────────────────────── */}
       <section className="section-px flex flex-col
-                           gap-[16px] pb-[80px]
-                           md:gap-[20px] md:pb-[100px]
-                           3xl:gap-[24px] 3xl:pb-[120px]">
+                           gap-[16px] pb-[40px]
+                           md:gap-[20px] md:pb-[50px]
+                           3xl:gap-[24px] 3xl:pb-[64px]">
         <motion.h2
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="font-noto-tc font-semibold text-black
@@ -460,7 +479,9 @@ export function SinotradePage() {
 
         <motion.div
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="flex flex-col gap-[12px] md:gap-[16px]">
+          className="grid grid-cols-1 gap-[12px]
+                     md:grid-cols-3 md:gap-[16px]
+                     3xl:gap-[20px]">
           {outcomes.map((o) => (
             <div key={o.role}
                  className="bg-[#fafafa] flex flex-col gap-[4px]
@@ -477,6 +498,31 @@ export function SinotradePage() {
             </div>
           ))}
         </motion.div>
+      </section>
+
+      {/* ── 11. Reflection ───────────────────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pb-[80px]
+                           md:gap-[20px] md:pb-[100px]
+                           3xl:gap-[24px] 3xl:pb-[120px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#878787]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          學習與反思
+        </motion.p>
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc text-black leading-[1.9]
+                     text-[14px] md:text-[17px] 3xl:text-[22px]">
+          這個專案讓我更確定一件事：把紙本數位化，重新設計的核心是「人與流程」的關係，畫面從紙本換成螢幕只是表面。
+        </motion.p>
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc text-black leading-[1.9]
+                     text-[14px] md:text-[17px] 3xl:text-[22px]">
+          如果重新設計一次，我會把送件狀態查詢提早納入第一版原型，不要等到後期才補上。對營業員來說，「知道案件進度」跟「完成填寫」一樣重要，兩者原本應該在同一輪研究裡一起被驗證。
+        </motion.p>
       </section>
 
     </div>

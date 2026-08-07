@@ -31,6 +31,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* 全站內文行距統一為字體大小的 1.5 倍（標題 h1–h6 不在此範圍內） */
+p, li {
+  line-height: 1.5 !important;
+}
+
 /* ─── Responsive section padding utility ────────────── */
 /*
   Breakpoints:
