@@ -30,19 +30,19 @@ const projects: Project[] = [
     imgStyle: { top: '10px' },
   },
   {
-    id: 'daiso',
-    slug: 'daiso',
-    title: ['複雜的費用核銷規則轉化為可被理解的', '申請流程，降低跨部門協作成本'],
-    tags: ['企業內部系統', '流程設計', '簽核流程'],
-    image: projectDaiso,
-    bgStyle: { backgroundColor: '#edeef2' },
-  },
-  {
     id: 'wdopa',
     slug: 'counter-service',
     title: ['分散的櫃台服務流程', '整合為一段可被執行的服務體驗'],
     tags: ['服務設計', '政府服務', '資訊架構'],
     image: projectWdopa,
+    bgStyle: { backgroundColor: '#edeef2' },
+  },
+  {
+    id: 'daiso',
+    slug: 'daiso',
+    title: ['複雜的費用核銷規則轉化為可被理解的', '申請流程，降低跨部門協作成本'],
+    tags: ['企業內部系統', '流程設計', '簽核流程'],
+    image: projectDaiso,
     bgStyle: { backgroundColor: '#edeef2' },
   },
 ]
