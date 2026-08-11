@@ -37,12 +37,12 @@ export const projectList: Project[] = [
     slug: 'securities-account',
   },
   {
-    id: 'expense-approval',
+    id: 'daiso',
     title: '複雜的費用核銷規則轉化為可被理解的申請流程，降低跨部門協作成本',
     description: '',
     tags: ['企業內部系統', '流程設計', '簽核流程'],
     imageUrl: '',
-    slug: 'expense-approval',
+    slug: 'daiso',
   },
   {
     id: 'counter-service',

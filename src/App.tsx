@@ -41,7 +41,7 @@ function App() {
             <Route path="/design-system" element={<DesignSystemPage />} />
             <Route path="/design-system/buttons" element={<ButtonDocPage />} />
             <Route path="/works/counter-service" element={<CounterServicePage />} />
-            <Route path="/works/expense-approval" element={<ExpenseApprovalPage />} />
+            <Route path="/works/daiso" element={<ExpenseApprovalPage />} />
             <Route path="/works/sinotrade" element={<SinotradePage />} />
             <Route path="/works/:slug" element={<ProjectPage />} />
           </Routes>
