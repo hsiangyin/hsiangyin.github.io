@@ -47,7 +47,7 @@ export function Footer() {
             <img src={iconGmail} alt="Gmail" className="h-full w-full" />
           </a>
           <a
-            href="https://linkedin.com/in/sharlene-tang"
+            href="https://www.linkedin.com/in/sharlene-tang"
             target="_blank"
             rel="noopener noreferrer"
             className="block transition-opacity hover:opacity-70

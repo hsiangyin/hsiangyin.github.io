@@ -1,41 +1,43 @@
 import { motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
-import iconWorkflow   from '@/assets/images/icon-workflow.svg'
-import iconEnterprise from '@/assets/images/icon-enterprise.svg'
-import iconService    from '@/assets/images/icon-service.svg'
-import iconDigital    from '@/assets/images/icon-digital.svg'
 
 const fadeUp: Variants = {
   hidden:  { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }
 
-/* ── design values data ─────────────────────────────────── */
+/* ── core skills data ───────────────────────────────────── */
 
 const designValues = [
   {
-    id: 'workflow',
-    icon: iconWorkflow,
-    title: '流程設計',
-    description: '規劃符合使用者與企業需求的工作流程，降低操作成本並提升效率。',
+    id: 'problem-framing',
+    title: '需求釐清 × 問題定義',
+    description: '從模糊的需求中找出真正需要被解決的問題，釐清使用者、業務與組織需求。',
   },
   {
-    id: 'enterprise',
-    icon: iconEnterprise,
-    title: '企業產品體驗',
-    description: '設計企業內部系統與管理平台，兼顧業務邏輯、使用效率與產品一致性。',
+    id: 'service-design',
+    title: '服務設計 × 流程重構',
+    description: '盤點跨角色服務流程，找出流程斷點與協作問題，重新設計更有效率的工作流程。',
   },
   {
-    id: 'service',
-    icon: iconService,
-    title: '服務設計',
-    description: '整合不同角色與服務接觸點，打造完整且流暢的服務體驗。',
+    id: 'information-architecture',
+    title: '使用者流程 × 資訊架構',
+    description: '將複雜的資訊、業務規則與操作流程重新組織，降低使用者的理解與操作成本。',
   },
   {
-    id: 'digital',
-    icon: iconDigital,
-    title: '數位轉型',
-    description: '協助企業將紙本流程、人工作業與複雜規範轉化為可落地的數位流程。',
+    id: 'interaction-design',
+    title: 'UX / UI × 互動設計',
+    description: '將問題定義與流程策略轉化為具體的產品體驗與介面設計。',
+  },
+  {
+    id: 'cross-team',
+    title: '跨部門協作',
+    description: '與 PM、RD、主管及業務單位共同討論需求與限制，在不同觀點之間找到可執行的設計方案。',
+  },
+  {
+    id: 'delivery',
+    title: '設計交付',
+    description: '不只完成設計稿，也持續追蹤開發實作，處理設計與技術之間的落差，確保設計真正落地。',
   },
 ]
 
@@ -118,17 +120,16 @@ export function AboutPage() {
                            gap-[30px] pt-[40px] pb-[40px]
                            md:pt-[50px] md:pb-[50px]
                            3xl:pt-[60px] 3xl:pb-[80px]">
-        <div className="flex flex-col gap-[24px]
-                        md:flex-row md:items-center md:justify-between md:gap-[24px]
+        <div className="flex flex-col items-center gap-[24px]
                         3xl:gap-[30px]">
-          <div className="flex flex-col gap-[20px] md:max-w-[55%] 3xl:max-w-[940px] 3xl:gap-[30px]">
+          <div className="flex flex-col items-center gap-[20px] mx-auto max-w-[1100px] text-center 3xl:gap-[30px]">
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible"
-              className="flex flex-nowrap items-center gap-[6px] whitespace-nowrap
-                         text-[13px]
-                         md:gap-[8px] md:text-[18px]
-                         xl:text-[28px]
-                         3xl:text-[48px]"
+              className="flex flex-nowrap items-center justify-center gap-[6px] whitespace-nowrap
+                         text-[26px]
+                         md:gap-[8px] md:text-[36px]
+                         xl:text-[48px]
+                         3xl:text-[60px]"
             >
               <span className="font-baskerville font-bold italic text-black">Product</span>
               <span className="font-poppins font-medium text-black">Designer ･</span>
@@ -152,7 +153,9 @@ export function AboutPage() {
                             md:text-[16px]
                             xl:text-[18px]
                             3xl:text-[20px] 3xl:leading-[30px]">
-                過去 10 年，我參與金融、零售、交通、政府及企業內部系統等大型數位轉型專案，協助團隊將複雜的業務流程、紙本作業與商業規則，轉化為使用者容易理解且容易完成的數位產品。
+                過去 10 年，我參與金融、零售、交通、政府及企業內部系統等大型數位轉型專案，
+                <br />
+                協助團隊將複雜的業務流程、紙本作業與商業規則，轉化為使用者容易理解且容易完成的數位產品。
               </p>
               <p className="font-noto-tc text-black leading-[1.6]
                             text-[14px]
@@ -163,18 +166,6 @@ export function AboutPage() {
               </p>
             </motion.div>
           </div>
-
-          <motion.div
-            aria-hidden="true"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-            className="hidden shrink-0 self-center rounded-full md:block
-                       md:size-[200px]
-                       xl:size-[300px]
-                       3xl:size-[414px]"
-            style={{ background: 'linear-gradient(to bottom, #e6e9ec 8%, #c4c8c9 85%)' }}
-          />
         </div>
 
         <div className="h-px w-full bg-[#d9d9d9]" />
@@ -190,11 +181,11 @@ export function AboutPage() {
                         md:text-[36px]
                         xl:text-[48px]
                         3xl:text-[60px]">
-          <span className="font-poppins font-medium text-[#444]">Design</span>
-          <span className="font-baskerville font-bold italic text-[#444]">Values</span>
+          <span className="font-poppins font-medium text-[#444]">Core</span>
+          <span className="font-baskerville font-bold italic text-[#444]">Skills</span>
         </div>
 
-        <div className="grid gap-[16px] grid-cols-1 md:grid-cols-2 xl:grid-cols-4 3xl:gap-[20px]">
+        <div className="grid gap-[16px] grid-cols-1 md:grid-cols-2 xl:grid-cols-3 3xl:gap-[20px]">
           {designValues.map((item, i) => (
             <motion.div
               key={item.id}
@@ -202,34 +193,21 @@ export function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
-              className="flex flex-col items-start rounded-[20px] shadow-[0px_2px_5px_rgba(0,0,0,0.15)]
-                         p-[28px]
-                         md:p-[36px]
-                         3xl:rounded-[24px] 3xl:p-[50px]"
-              style={{ background: 'linear-gradient(155deg, #ffffff 0%, #EEF1F6 100%)' }}
+              className="bg-[#fafafa] flex flex-col gap-[8px]
+                         rounded-[16px] md:rounded-[20px]
+                         p-[24px] md:p-[28px] 3xl:p-[36px]"
             >
-              <div className="flex w-full items-center justify-center
-                              h-[100px]
-                              md:h-[130px]
-                              3xl:h-[190px]">
-                <img
-                  src={item.icon}
-                  alt={item.title}
-                  className="h-full w-auto max-w-full object-contain"
-                />
-              </div>
-
-              <p className="mt-[16px] w-full text-center font-poppins font-bold text-black
-                            text-[18px] leading-[1.4]
-                            md:text-[22px]
-                            3xl:text-[32px] 3xl:leading-[48px] 3xl:mt-[20px]">
+              <p className="font-poppins font-bold text-[#7718d6]
+                            text-[16px] leading-[1.4]
+                            md:text-[20px]
+                            3xl:text-[28px] 3xl:leading-[1.4]">
                 {item.title}
               </p>
 
-              <p className="mt-[8px] w-full font-noto-tc text-black leading-relaxed
+              <p className="font-noto-tc text-black leading-relaxed
                             text-[13px]
                             md:text-[15px]
-                            3xl:text-[18px] 3xl:mt-[4px]">
+                            3xl:text-[18px]">
                 {item.description}
               </p>
             </motion.div>

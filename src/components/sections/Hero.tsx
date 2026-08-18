@@ -90,7 +90,7 @@ export function Hero() {
             <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-[4px] 3xl:size-[20px]" />
           </a>
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1FL4cDvUg6A9np4cpuegMdaYlxh1dLDbh/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-[50px] border border-[#1e1e1e]/20 bg-white/65 text-black no-underline transition-colors hover:bg-white/85
