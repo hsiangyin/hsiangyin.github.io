@@ -16,7 +16,7 @@ const fadeUp: Variants = {
 function StepNum({ n }: { n: number }) {
   return (
     <div className="relative shrink-0 size-[24px] md:size-[28px] 3xl:size-[42px]">
-      <div className="absolute inset-0 rounded-full bg-[#12A296]" />
+      <div className="absolute inset-0 rounded-full bg-[#7118d6]" />
       <span className="absolute inset-0 flex items-center justify-center font-bold text-white
                        text-[15px] md:text-[18px] 3xl:text-[28px]">
         {n}
@@ -250,7 +250,7 @@ export function CounterServicePage() {
 
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-poppins font-bold text-[#12a296] leading-[1.6]
+          className="font-poppins font-bold text-[#7118d6] leading-[1.6]
                      text-[16px] md:text-[22px] xl:text-[26px] 3xl:text-[36px]
                      3xl:leading-[36px]"
         >
@@ -382,7 +382,7 @@ export function CounterServicePage() {
         {/* Outcome banner */}
         <motion.div
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="bg-[#12a296] rounded-[16px] md:rounded-[24px]
+          className="bg-[#7118d6] rounded-[16px] md:rounded-[24px]
                      px-[20px] py-[20px]
                      md:px-[40px] md:py-[24px]
                      3xl:px-[60px] 3xl:py-[30px]
@@ -422,7 +422,7 @@ export function CounterServicePage() {
                          p-[20px] md:p-[24px] 3xl:p-[30px]
                          flex flex-col gap-[12px]"
             >
-              <p className="font-poppins font-medium text-[#12a296]
+              <p className="font-poppins font-medium text-[#7118d6]
                              text-[16px] md:text-[20px] 3xl:text-[28px]">
                 {role}
               </p>
