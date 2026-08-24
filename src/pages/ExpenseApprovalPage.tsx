@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
+import { CaseStudyNav } from '@/components/ui/CaseStudyNav'
 import heroTablet  from '@/assets/images/dasio/hero-tablet.jpg'
 import photoDasio  from '@/assets/images/dasio/photo-dasio.png'
 import imgDasio01  from '@/assets/images/dasio/img-dasio-01.png'
@@ -12,7 +13,7 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }
 
-const BADGE_ACCENT = '#7118d6'
+const BADGE_ACCENT = '#7718d6'
 
 const principles = [
   { title: '系統自動帶入已知資料', desc: '姓名、部門這類資料，系統原本就存在，避免讓使用者重複輸入。' },
@@ -59,9 +60,18 @@ const outcomeRoles = [
   { role: '會計', desc: '降低核銷成本，減少人工核對。' },
 ]
 
+const CASE_STUDY_SECTIONS = [
+  { id: 'problem', label: '問題' },
+  { id: 'research', label: '研究洞察' },
+  { id: 'solutions', label: '設計決策' },
+  { id: 'outcome', label: '成果' },
+  { id: 'reflection', label: '反思' },
+]
+
 export function ExpenseApprovalPage() {
   return (
     <div className="w-full bg-white">
+      <CaseStudyNav sections={CASE_STUDY_SECTIONS} />
 
       {/* ── 1. Intro ──────────────────────────────────── */}
       <section className="section-px flex flex-col
@@ -70,7 +80,7 @@ export function ExpenseApprovalPage() {
                            3xl:pt-[50px]">
         <motion.p
           variants={fadeUp} initial="hidden" animate="visible"
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[14px] md:text-[18px] 3xl:text-[24px]">
           Enterprise System
         </motion.p>
@@ -101,7 +111,7 @@ export function ExpenseApprovalPage() {
             { label: '負責項目', value: '流程定義、UX規劃、UI設計與交付', font: 'font-noto-tc' },
           ].map(({ label, value, font }) => (
             <div key={label} className="flex flex-col gap-[4px]">
-              <p className="font-noto text-[#878787]
+              <p className="font-noto text-[#767676]
                             text-[12px] md:text-[14px] 3xl:text-[18px]">
                 {label}
               </p>
@@ -125,13 +135,14 @@ export function ExpenseApprovalPage() {
       </section>
 
       {/* ── 3. Background ─────────────────────────────── */}
-      <section className="section-px flex flex-col
+      <section id="problem" className="section-px flex flex-col
+                           scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                            gap-[12px] py-[40px]
                            md:gap-[16px] md:py-[50px]
                            3xl:gap-[20px] 3xl:py-[64px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           專案背景
         </motion.p>
@@ -168,13 +179,14 @@ export function ExpenseApprovalPage() {
       </section>
 
       {/* ── 5. Research Process ───────────────────────── */}
-      <section className="section-px flex flex-col
+      <section id="research" className="section-px flex flex-col
+                           scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                            gap-[16px] pb-[40px]
                            md:gap-[20px] md:pb-[50px]
                            3xl:gap-[24px] 3xl:pb-[64px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           釐清需求
         </motion.p>
@@ -241,7 +253,7 @@ export function ExpenseApprovalPage() {
                            3xl:gap-[24px] 3xl:pb-[64px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           設計原則
         </motion.p>
@@ -279,10 +291,10 @@ export function ExpenseApprovalPage() {
       </section>
 
       {/* ── 6. Design Decisions label ─────────────────── */}
-      <section className="section-px flex flex-col pt-[8px] pb-[8px] md:pt-[12px]">
+      <section id="solutions" className="section-px flex flex-col scroll-mt-[110px] pt-[8px] pb-[8px] md:scroll-mt-[125px] md:pt-[12px] 3xl:scroll-mt-[160px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           設計決策
         </motion.p>
@@ -322,13 +334,14 @@ export function ExpenseApprovalPage() {
       ))}
 
       {/* ── 10. Outcomes ─────────────────────────────── */}
-      <section className="section-px flex flex-col
+      <section id="outcome" className="section-px flex flex-col
+                           scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                            gap-[20px] pb-[48px]
                            md:gap-[28px] md:pb-[64px]
                            3xl:gap-[36px] 3xl:pb-[80px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           設計成效
         </motion.p>
@@ -358,13 +371,14 @@ export function ExpenseApprovalPage() {
       </section>
 
       {/* ── 11. Reflection ───────────────────────────── */}
-      <section className="section-px flex flex-col
+      <section id="reflection" className="section-px flex flex-col
+                           scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                            gap-[16px] pb-[80px]
                            md:gap-[20px] md:pb-[100px]
                            3xl:gap-[24px] 3xl:pb-[120px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           學習與反思
         </motion.p>

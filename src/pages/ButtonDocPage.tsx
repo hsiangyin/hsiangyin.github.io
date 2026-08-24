@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 function Breadcrumb() {
   return (
-    <nav className="flex items-center gap-[8px] font-noto text-[13px] text-[#878787]">
-      <Link to="/design-system" className="hover:text-[#1e1e1e] transition-colors no-underline text-[#878787]">
+    <nav className="flex items-center gap-[8px] font-noto text-[13px] text-[#767676]">
+      <Link to="/design-system" className="hover:text-[#1e1e1e] transition-colors no-underline text-[#767676]">
         Design System
       </Link>
       <span>/</span>
@@ -68,13 +68,13 @@ function AnatomyDiagram() {
           </div>
           {/* Label: Container */}
           <div className="absolute -top-[36px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-[4px]">
-            <span className="font-mono text-[11px] text-[#878787] whitespace-nowrap">① Container</span>
+            <span className="font-mono text-[11px] text-[#767676] whitespace-nowrap">① Container</span>
             <div className="w-px h-[16px] bg-[#d9d9d9]" />
           </div>
           {/* Label: Label text */}
           <div className="absolute -bottom-[36px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-[4px]">
             <div className="w-px h-[16px] bg-[#d9d9d9]" />
-            <span className="font-mono text-[11px] text-[#878787] whitespace-nowrap">② Label</span>
+            <span className="font-mono text-[11px] text-[#767676] whitespace-nowrap">② Label</span>
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@ function AnatomyDiagram() {
               { n: 2, part: 'Label',     desc: '按鈕文字，使用 font-noto-tc。Primary 白色；Outline 深色；Nav Link 深色帶 hover 透明度。' },
             ].map(({ n, part, desc }) => (
               <tr key={n} className="border-b border-[#f0f0f0] last:border-0">
-                <td className="py-[10px] pr-[16px] text-[#878787] font-mono">{n}</td>
+                <td className="py-[10px] pr-[16px] text-[#767676] font-mono">{n}</td>
                 <td className="py-[10px] pr-[16px] font-medium text-[#1e1e1e] whitespace-nowrap">{part}</td>
                 <td className="py-[10px] font-noto-tc text-[#585c5f] leading-[1.7]">{desc}</td>
               </tr>
@@ -140,7 +140,7 @@ function StateDemo({ label, className, style }: { label: string; className: stri
       <button className={className} style={style} disabled={label === 'Disabled'}>
         下載履歷
       </button>
-      <span className="font-mono text-[12px] text-[#878787]">{label}</span>
+      <span className="font-mono text-[12px] text-[#767676]">{label}</span>
     </div>
   )
 }
@@ -494,14 +494,14 @@ export function ButtonDocPage() {
           {/* ── Table of Contents (desktop sidebar) ──── */}
           <aside className="hidden xl:block w-[200px] shrink-0">
             <div className="sticky top-[90px] flex flex-col gap-[4px]">
-              <p className="font-poppins text-[12px] font-semibold text-[#878787] uppercase tracking-wider mb-[8px]">
+              <p className="font-poppins text-[12px] font-semibold text-[#767676] uppercase tracking-wider mb-[8px]">
                 On this page
               </p>
               {TOC_ITEMS.map(({ id, label }) => (
                 <a
                   key={id}
                   href={`#${id}`}
-                  className="font-noto text-[13px] text-[#878787] no-underline
+                  className="font-noto text-[13px] text-[#767676] no-underline
                              py-[4px] px-[8px] rounded-[6px] hover:bg-[#fafafa] hover:text-[#1e1e1e]
                              transition-colors"
                 >

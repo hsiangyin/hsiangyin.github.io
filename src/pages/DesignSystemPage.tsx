@@ -25,7 +25,7 @@ function Swatch({ name, hex }: { name: string; hex: string }) {
         style={{ backgroundColor: hex }}
       />
       <p className="font-poppins text-[13px] font-medium text-[#1e1e1e]">{name}</p>
-      <p className="font-mono text-[12px] text-[#878787]">{hex}</p>
+      <p className="font-mono text-[12px] text-[#767676]">{hex}</p>
     </div>
   )
 }
@@ -34,7 +34,7 @@ function Swatch({ name, hex }: { name: string; hex: string }) {
 function TypeRow({ label, className, sample = 'The quick brown fox' }: { label: string; className: string; sample?: string }) {
   return (
     <div className="flex flex-col gap-[4px] py-[16px] border-b border-[#f0f0f0] last:border-0">
-      <p className="font-mono text-[11px] text-[#878787] mb-[4px]">{label}</p>
+      <p className="font-mono text-[11px] text-[#767676] mb-[4px]">{label}</p>
       <p className={className}>{sample}</p>
     </div>
   )
@@ -46,7 +46,7 @@ export function DesignSystemPage() {
     <div className="w-full bg-white">
       {/* Page header */}
       <div className="section-px pt-[48px] pb-[40px] border-b border-[#d9d9d9]">
-        <p className="font-noto text-[#878787] text-[14px] mb-[8px]">Internal Reference</p>
+        <p className="font-noto text-[#767676] text-[14px] mb-[8px]">Internal Reference</p>
         <h1 className="font-baskerville text-[#1e1e1e] text-[32px] md:text-[40px] font-normal mb-[12px]">
           Design System
         </h1>
@@ -61,7 +61,7 @@ export function DesignSystemPage() {
         {/* ── 1. Colors ──────────────────────────────────── */}
         <Section title="Colors">
           <div>
-            <p className="font-poppins text-[13px] font-medium text-[#878787] mb-[16px] uppercase tracking-wider">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] mb-[16px] uppercase tracking-wider">
               Core
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-[16px]">
@@ -69,13 +69,13 @@ export function DesignSystemPage() {
               <Swatch name="White / BG" hex="#ffffff" />
               <Swatch name="Teal Accent" hex="#12a296" />
               <Swatch name="Purple Accent" hex="#7718D6" />
-              <Swatch name="Muted Text" hex="#878787" />
+              <Swatch name="Muted Text" hex="#767676" />
               <Swatch name="Footer Text" hex="#585c5f" />
             </div>
           </div>
 
           <div>
-            <p className="font-poppins text-[13px] font-medium text-[#878787] mb-[16px] uppercase tracking-wider">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] mb-[16px] uppercase tracking-wider">
               Surface &amp; Border
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-[16px]">
@@ -89,7 +89,7 @@ export function DesignSystemPage() {
           </div>
 
           <div>
-            <p className="font-poppins text-[13px] font-medium text-[#878787] mb-[16px] uppercase tracking-wider">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] mb-[16px] uppercase tracking-wider">
               Animated Orbs (Layout BG)
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-[16px]">
@@ -100,7 +100,7 @@ export function DesignSystemPage() {
           </div>
 
           <div>
-            <p className="font-poppins text-[13px] font-medium text-[#878787] mb-[16px] uppercase tracking-wider">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] mb-[16px] uppercase tracking-wider">
               Gradients
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
@@ -110,7 +110,7 @@ export function DesignSystemPage() {
                   style={{ background: 'linear-gradient(155deg, #ffffff 6%, #F6EFFA 96%)' }}
                 />
                 <p className="font-poppins text-[13px] font-medium text-[#1e1e1e]">Expertise Card</p>
-                <p className="font-mono text-[12px] text-[#878787]">linear-gradient(155deg, #ffffff 6%, #F6EFFA 96%)</p>
+                <p className="font-mono text-[12px] text-[#767676]">linear-gradient(155deg, #ffffff 6%, #F6EFFA 96%)</p>
               </div>
               <div className="flex flex-col gap-[8px]">
                 <div
@@ -118,7 +118,7 @@ export function DesignSystemPage() {
                   style={{ background: 'linear-gradient(to bottom, #e6e9ec 8%, #c4c8c9 85%)' }}
                 />
                 <p className="font-poppins text-[13px] font-medium text-[#1e1e1e]">Hero Image BG</p>
-                <p className="font-mono text-[12px] text-[#878787]">linear-gradient(to bottom, #e6e9ec 8%, #c4c8c9 85%)</p>
+                <p className="font-mono text-[12px] text-[#767676]">linear-gradient(to bottom, #e6e9ec 8%, #c4c8c9 85%)</p>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@ export function DesignSystemPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px]">
             {/* Font families */}
             <div className="flex flex-col gap-[4px]">
-              <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider mb-[12px]">
+              <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider mb-[12px]">
                 Font Families
               </p>
               {[
@@ -139,7 +139,7 @@ export function DesignSystemPage() {
                 { var: '--font-noto',        label: 'Noto Sans',         className: 'font-noto text-[22px]',        sample: 'EN body / labels' },
               ].map(f => (
                 <div key={f.var} className="py-[12px] border-b border-[#f0f0f0] last:border-0 flex flex-col gap-[2px]">
-                  <p className="font-mono text-[11px] text-[#878787]">{f.var} · {f.label}</p>
+                  <p className="font-mono text-[11px] text-[#767676]">{f.var} · {f.label}</p>
                   <p className={f.className}>{f.sample}</p>
                 </div>
               ))}
@@ -147,7 +147,7 @@ export function DesignSystemPage() {
 
             {/* Scale */}
             <div>
-              <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider mb-[12px]">
+              <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider mb-[12px]">
                 Type Scale (Desktop xl)
               </p>
               <TypeRow label="Hero h1 · font-baskerville · 2rem"    className="font-baskerville text-[2rem] font-normal"   sample="Hello, I'm Sharlene." />
@@ -157,14 +157,14 @@ export function DesignSystemPage() {
               <TypeRow label="Body TC · font-noto-tc · 18px · 1.8" className="font-noto-tc text-[18px] leading-[1.8]"     sample="設計師的角色——不只是設計畫面，而是規劃流程。" />
               <TypeRow label="Body EN · font-noto · 16px"           className="font-noto text-[16px]"                      sample="Product Designer · 2025–2026" />
               <TypeRow label="Tag · font-noto-tc · 14px"            className="font-noto-tc text-[14px]"                   sample="服務設計 · 流程設計" />
-              <TypeRow label="Caption · font-noto · 13px · muted"   className="font-noto text-[13px] text-[#878787]"       sample="Operational System" />
+              <TypeRow label="Caption · font-noto · 13px · muted"   className="font-noto text-[13px] text-[#767676]"       sample="Operational System" />
             </div>
           </div>
         </Section>
 
         {/* ── 3. Spacing & Layout ────────────────────────── */}
         <Section title="Spacing &amp; Layout">
-          <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider">
+          <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider">
             .section-px — Responsive Content Padding
           </p>
           <div className="bg-[#fafafa] rounded-[12px] p-[20px] font-mono text-[13px] leading-[2]">
@@ -175,7 +175,7 @@ export function DesignSystemPage() {
           </div>
 
           <div>
-            <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider mb-[12px]">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider mb-[12px]">
               Border Radius
             </p>
             <div className="flex flex-wrap gap-[16px]">
@@ -191,14 +191,14 @@ export function DesignSystemPage() {
                     className="h-[56px] border-2 border-[#1e1e1e]"
                     style={{ width: w, borderRadius: r }}
                   />
-                  <p className="font-mono text-[11px] text-[#878787] text-center">{label}</p>
+                  <p className="font-mono text-[11px] text-[#767676] text-center">{label}</p>
                 </div>
               ))}
             </div>
           </div>
 
           <div>
-            <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider mb-[12px]">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider mb-[12px]">
               Shadow
             </p>
             <div className="flex flex-wrap gap-[24px]">
@@ -212,7 +212,7 @@ export function DesignSystemPage() {
                     className="w-[120px] h-[56px] rounded-[12px] bg-white"
                     style={{ boxShadow: shadow }}
                   />
-                  <p className="font-mono text-[11px] text-[#878787]">{label}</p>
+                  <p className="font-mono text-[11px] text-[#767676]">{label}</p>
                 </div>
               ))}
             </div>
@@ -225,7 +225,7 @@ export function DesignSystemPage() {
           {/* Buttons */}
           <div className="flex flex-col gap-[12px]">
             <div className="flex items-center justify-between">
-              <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider">Buttons</p>
+              <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider">Buttons</p>
               <Link
                 to="/design-system/buttons"
                 className="font-noto text-[13px] text-[#7718D6] no-underline hover:opacity-70 transition-opacity"
@@ -257,7 +257,7 @@ export function DesignSystemPage() {
 
           {/* Tags */}
           <div className="flex flex-col gap-[12px]">
-            <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider">Tags</p>
+            <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider">Tags</p>
             <div className="flex flex-wrap gap-[8px]">
               {['服務設計', '政府服務', '資訊架構', '金融科技', '數位轉型'].map(tag => (
                 <span
@@ -274,14 +274,14 @@ export function DesignSystemPage() {
 
           {/* Divider */}
           <div className="flex flex-col gap-[12px]">
-            <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider">Divider</p>
+            <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider">Divider</p>
             <div className="h-px w-full bg-[#d9d9d9]" />
-            <p className="font-mono text-[12px] text-[#878787]">h-px · bg-[#d9d9d9] · used in Hero section &amp; Footer</p>
+            <p className="font-mono text-[12px] text-[#767676]">h-px · bg-[#d9d9d9] · used in Hero section &amp; Footer</p>
           </div>
 
           {/* Expertise Card */}
           <div className="flex flex-col gap-[12px]">
-            <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider">
               Expertise Card
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[16px]">
@@ -301,7 +301,7 @@ export function DesignSystemPage() {
 
           {/* Featured Works Card */}
           <div className="flex flex-col gap-[12px]">
-            <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider">
               Featured Works Card
             </p>
             <div
@@ -325,7 +325,7 @@ export function DesignSystemPage() {
 
           {/* Finding / Step Card */}
           <div className="flex flex-col gap-[12px]">
-            <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider">
               Finding Card (Counter Service)
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px]">
@@ -355,7 +355,7 @@ export function DesignSystemPage() {
 
           {/* Outcome Banner */}
           <div className="flex flex-col gap-[12px]">
-            <p className="font-poppins text-[13px] font-medium text-[#878787] uppercase tracking-wider">
+            <p className="font-poppins text-[13px] font-medium text-[#767676] uppercase tracking-wider">
               Outcome Banner
             </p>
             <div className="bg-[#12a296] rounded-[16px] px-[20px] py-[20px] md:px-[40px] md:py-[24px] flex flex-col gap-[8px]">
@@ -373,13 +373,13 @@ export function DesignSystemPage() {
         {/* ── 5. Animation Tokens ────────────────────────── */}
         <Section title="Animation">
           <div className="bg-[#fafafa] rounded-[12px] p-[20px] font-mono text-[13px] leading-[2.2]">
-            <p className="text-[#878787] mb-[4px]">// Scroll reveal (Framer Motion — used on all sections)</p>
+            <p className="text-[#767676] mb-[4px]">// Scroll reveal (Framer Motion — used on all sections)</p>
             <p><span className="text-[#7718D6]">initial</span>   {'{ opacity: 0, y: 28 }'}</p>
             <p><span className="text-[#7718D6]">animate</span>   {'{ opacity: 1, y: 0 }'}</p>
             <p><span className="text-[#7718D6]">transition</span> {'{ duration: 0.55, ease: "easeOut" }'}</p>
             <p><span className="text-[#7718D6]">viewport</span>   {'{ once: true, margin: "-60px" }'}</p>
             <br />
-            <p className="text-[#878787]">// Background orbs (Layout.tsx)</p>
+            <p className="text-[#767676]">// Background orbs (Layout.tsx)</p>
             <p><span className="text-[#7718D6]">animate.x</span>  [0, 50, -20, 30, 0]</p>
             <p><span className="text-[#7718D6]">animate.y</span>  [0, -38, 20, -12, 0]</p>
             <p><span className="text-[#7718D6]">transition</span> {'{ duration: 18, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }'}</p>

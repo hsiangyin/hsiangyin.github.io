@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Layout } from '@/components/layout/Layout'
 import { HomePage } from '@/pages/HomePage'
@@ -42,6 +42,8 @@ function App() {
             <Route path="/design-system/buttons" element={<ButtonDocPage />} />
             <Route path="/works/counter-service" element={<CounterServicePage />} />
             <Route path="/works/daiso" element={<ExpenseApprovalPage />} />
+            {/* expense-approval is the slug documented in CLAUDE.md and the intuitive guess for this case study; alias it to the canonical route instead of letting it 404 into the generic fallback */}
+            <Route path="/works/expense-approval" element={<Navigate to="/works/daiso" replace />} />
             <Route path="/works/sinotrade" element={<SinotradePage />} />
             <Route path="/works/:slug" element={<ProjectPage />} />
           </Routes>

@@ -125,8 +125,9 @@ export function AboutPage() {
           <div className="flex flex-col items-center gap-[20px] mx-auto max-w-[1100px] text-center 3xl:gap-[30px]">
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible"
-              className="flex flex-nowrap items-center justify-center gap-[6px] whitespace-nowrap
-                         text-[26px]
+              className="flex flex-wrap items-center justify-center gap-x-[6px] gap-y-[2px]
+                         text-[22px]
+                         min-[420px]:flex-nowrap min-[420px]:whitespace-nowrap min-[420px]:text-[26px]
                          md:gap-[8px] md:text-[36px]
                          xl:text-[48px]
                          3xl:text-[60px]"
@@ -274,7 +275,7 @@ export function AboutPage() {
                 <div className="flex flex-col gap-[8px] md:gap-[10px]">
                   {job.bullets.map((bullet) => (
                     <div key={bullet.label}>
-                      <p className="font-noto-tc font-medium text-[#888] leading-[1.6]
+                      <p className="font-noto-tc font-medium text-[#767676] leading-[1.6]
                                     text-[13px]
                                     md:text-[16px]
                                     xl:text-[18px]
@@ -282,7 +283,7 @@ export function AboutPage() {
                         ‧{bullet.label}
                       </p>
                       {bullet.detail && (
-                        <p className="font-noto-tc text-[#888] leading-[1.6]
+                        <p className="font-noto-tc text-[#767676] leading-[1.6]
                                       pl-[16px] text-[12px]
                                       md:pl-[20px] md:text-[14px]
                                       xl:text-[16px]

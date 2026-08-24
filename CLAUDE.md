@@ -24,7 +24,8 @@ Product Designer portfolio. React + Vite + Tailwind CSS v4.
 | `/` | `HomePage` | Hero + CoreExpertise + FeaturedWorks |
 | `/works` | `HomePage` | Same as `/` |
 | `/works/counter-service` | `CounterServicePage` | Case study page |
-| `/works/expense-approval` | `ExpenseApprovalPage` | Case study page — 大創百貨費用核銷 |
+| `/works/daiso` | `ExpenseApprovalPage` | Case study page — 大創百貨費用核銷 |
+| `/works/expense-approval` | → redirects to `/works/daiso` | Alias for the intuitive slug; kept because it's referenced externally |
 | `/works/:slug` | `ProjectPage` | Generic case study fallback |
 | `/about` | `AboutPage` | |
 | `/design-system` | `DesignSystemPage` | Living UI reference — see below |
@@ -69,9 +70,9 @@ All tokens live in `src/index.css` under `@theme {}`.
 | `--color-divider` | `#d9d9d9` | `<hr>` / section lines |
 
 Hardcoded (not tokenised yet):
-- `#7718D6` — Featured Works tag text
+- `#7718D6` — Featured Works tag text, project accent badges (previously drifted to a typo'd `#7118d6` on several case-study pages — fixed 2026-08, always use `#7718D6`)
 - `#12a296` — Teal accent (Counter Service page)
-- `#878787` — Muted/caption text
+- `#767676` — Muted/caption text (was `#878787`/`#888`, both under the WCAG AA 4.5:1 minimum — fixed 2026-08)
 - `#fafafa` — Light card background
 - `#2B2D31` — Dark UI elements
 

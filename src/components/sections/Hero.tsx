@@ -116,7 +116,7 @@ export function Hero() {
                       md:text-[16px]
                       xl:text-[18px]
                       3xl:text-[26px]">
-          <span className="text-[#878787]">合作過的</span>
+          <span className="text-[#767676]">合作過的</span>
           <span className="font-semibold text-black">品牌</span>
         </p>
 

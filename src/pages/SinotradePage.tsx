@@ -11,7 +11,7 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }
 
-const ACCENT = '#7118d6'
+const ACCENT = '#7718d6'
 
 /* ── data ────────────────────────────────────────────── */
 
@@ -87,7 +87,7 @@ export function SinotradePage() {
                            3xl:pt-[50px]">
         <motion.p
           variants={fadeUp} initial="hidden" animate="visible"
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[14px] md:text-[18px] 3xl:text-[24px]">
           Process Redesign
         </motion.p>
@@ -118,7 +118,7 @@ export function SinotradePage() {
             { label: '負責項目', value: 'UX規劃、UI設計與交付、Html/CSS撰寫', font: 'font-noto-tc' },
           ].map(({ label, value, font }) => (
             <div key={label} className="flex flex-col gap-[4px]">
-              <p className="font-noto text-[#878787]
+              <p className="font-noto text-[#767676]
                             text-[12px] md:text-[14px] 3xl:text-[18px]">
                 {label}
               </p>
@@ -148,7 +148,7 @@ export function SinotradePage() {
                            3xl:gap-[20px] 3xl:py-[64px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           專案背景
         </motion.p>
@@ -195,7 +195,7 @@ export function SinotradePage() {
                            3xl:gap-[30px] 3xl:pb-[64px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           專案目標
         </motion.p>
@@ -246,7 +246,7 @@ export function SinotradePage() {
                            3xl:gap-[24px] 3xl:pb-[64px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           了解使用者
         </motion.p>
@@ -314,7 +314,7 @@ export function SinotradePage() {
                            3xl:gap-[24px] 3xl:pb-[64px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           問題定義
         </motion.p>
@@ -381,7 +381,7 @@ export function SinotradePage() {
                            3xl:gap-[24px] 3xl:pb-[64px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           設計原則
         </motion.p>
@@ -425,7 +425,7 @@ export function SinotradePage() {
                            3xl:gap-[24px] 3xl:pb-[64px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           設計決策
         </motion.p>
@@ -507,7 +507,7 @@ export function SinotradePage() {
                            3xl:gap-[24px] 3xl:pb-[120px]">
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[13px] md:text-[16px] 3xl:text-[20px]">
           學習與反思
         </motion.p>

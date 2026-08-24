@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
+import { CaseStudyNav } from '@/components/ui/CaseStudyNav'
 import heroTablet     from '@/assets/images/wdopa/hero-tablet.png'
 import screenCall     from '@/assets/images/wdopa/screen-callnumber.png'
 import photoResearch  from '@/assets/images/wdopa/photo-research.png'
@@ -16,7 +17,7 @@ const fadeUp: Variants = {
 function StepNum({ n }: { n: number }) {
   return (
     <div className="relative shrink-0 size-[24px] md:size-[28px] 3xl:size-[42px]">
-      <div className="absolute inset-0 rounded-full bg-[#7118d6]" />
+      <div className="absolute inset-0 rounded-full bg-[#7718d6]" />
       <span className="absolute inset-0 flex items-center justify-center font-bold text-white
                        text-[15px] md:text-[18px] 3xl:text-[28px]">
         {n}
@@ -52,9 +53,18 @@ const currentSteps = [
 
 /* ── main component ─────────────────────────────────────── */
 
+const CASE_STUDY_SECTIONS = [
+  { id: 'problem', label: '問題' },
+  { id: 'research', label: '研究洞察' },
+  { id: 'solutions', label: '設計決策' },
+  { id: 'outcome', label: '成果' },
+  { id: 'reflection', label: '反思' },
+]
+
 export function CounterServicePage() {
   return (
     <div className="w-full bg-white">
+      <CaseStudyNav sections={CASE_STUDY_SECTIONS} />
 
       {/* ── 1. Intro ────────────────────────────────────── */}
       <section className="section-px flex flex-col
@@ -63,7 +73,7 @@ export function CounterServicePage() {
                            3xl:pt-[50px]">
         <motion.p
           variants={fadeUp} initial="hidden" animate="visible"
-          className="font-noto text-[#878787]
+          className="font-noto text-[#767676]
                      text-[14px] md:text-[18px] 3xl:text-[24px]"
         >
           Operational System
@@ -92,7 +102,7 @@ export function CounterServicePage() {
             { label: '負責項目', value: '流程定義、服務流程規劃、UI/UX 設計、設計交付' },
           ].map(({ label, value }) => (
             <div key={label} className="flex flex-col gap-[4px]">
-              <span className="text-[#878787]">{label}</span>
+              <span className="text-[#767676]">{label}</span>
               <span className="font-semibold text-black">{value}</span>
             </div>
           ))}
@@ -114,8 +124,10 @@ export function CounterServicePage() {
 
       {/* ── 3. Problem Statement ────────────────────────── */}
       <motion.section
+        id="problem"
         variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
         className="section-px flex flex-col
+                   scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                    gap-[16px] pt-[60px] pb-[30px]
                    md:gap-[20px] md:pt-[80px] md:pb-[40px]
                    3xl:pt-[100px] 3xl:pb-[50px]"
@@ -149,7 +161,8 @@ export function CounterServicePage() {
       </motion.section>
 
       {/* ── 5. Research Findings ────────────────────────── */}
-      <section className="section-px flex flex-col
+      <section id="research" className="section-px flex flex-col
+                           scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                            gap-[16px] pt-[40px] pb-[30px]
                            md:gap-[20px] md:pt-[50px]
                            3xl:pt-[50px]">
@@ -250,7 +263,7 @@ export function CounterServicePage() {
 
         <motion.p
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-poppins font-bold text-[#7118d6] leading-[1.6]
+          className="font-poppins font-bold text-[#7718d6] leading-[1.6]
                      text-[16px] md:text-[22px] xl:text-[26px] 3xl:text-[36px]
                      3xl:leading-[36px]"
         >
@@ -259,7 +272,8 @@ export function CounterServicePage() {
       </section>
 
       {/* ── 7. Design Direction ─────────────────────────── */}
-      <section className="section-px flex flex-col
+      <section id="solutions" className="section-px flex flex-col
+                           scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                            gap-[16px] pb-[40px]
                            md:gap-[20px] md:pb-[50px]">
         <motion.h2
@@ -368,7 +382,8 @@ export function CounterServicePage() {
       </section>
 
       {/* ── 9. Outcome ──────────────────────────────────── */}
-      <section className="section-px flex flex-col
+      <section id="outcome" className="section-px flex flex-col
+                           scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                            gap-[20px] pb-[40px]
                            md:gap-[24px] md:pb-[50px]">
         <motion.h2
@@ -382,7 +397,7 @@ export function CounterServicePage() {
         {/* Outcome banner */}
         <motion.div
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="bg-[#7118d6] rounded-[16px] md:rounded-[24px]
+          className="bg-[#7718d6] rounded-[16px] md:rounded-[24px]
                      px-[20px] py-[20px]
                      md:px-[40px] md:py-[24px]
                      3xl:px-[60px] 3xl:py-[30px]
@@ -422,7 +437,7 @@ export function CounterServicePage() {
                          p-[20px] md:p-[24px] 3xl:p-[30px]
                          flex flex-col gap-[12px]"
             >
-              <p className="font-poppins font-medium text-[#7118d6]
+              <p className="font-poppins font-medium text-[#7718d6]
                              text-[16px] md:text-[20px] 3xl:text-[28px]">
                 {role}
               </p>
@@ -443,8 +458,10 @@ export function CounterServicePage() {
 
       {/* ── 10. Reflection ──────────────────────────────── */}
       <motion.section
+        id="reflection"
         variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
         className="section-px flex flex-col
+                   scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                    gap-[16px] pb-[60px]
                    md:gap-[20px] md:pb-[80px]
                    3xl:pb-[100px]"
