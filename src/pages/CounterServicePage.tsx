@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
-import { CaseStudyNav } from '@/components/ui/CaseStudyNav'
 import heroTablet     from '@/assets/images/wdopa/hero-tablet.png'
 import screenCall     from '@/assets/images/wdopa/screen-callnumber.png'
 import photoResearch  from '@/assets/images/wdopa/photo-research.png'
@@ -53,19 +52,9 @@ const currentSteps = [
 
 /* ── main component ─────────────────────────────────────── */
 
-const CASE_STUDY_SECTIONS = [
-  { id: 'problem', label: '問題' },
-  { id: 'research', label: '研究洞察' },
-  { id: 'solutions', label: '設計決策' },
-  { id: 'outcome', label: '成果' },
-  { id: 'reflection', label: '反思' },
-]
-
 export function CounterServicePage() {
   return (
     <div className="w-full bg-white">
-      <CaseStudyNav sections={CASE_STUDY_SECTIONS} />
-
       {/* ── 1. Intro ────────────────────────────────────── */}
       <section className="section-px flex flex-col
                            gap-[16px] pt-[40px] pb-[20px]

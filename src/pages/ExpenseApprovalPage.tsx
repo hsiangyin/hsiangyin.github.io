@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
-import { CaseStudyNav } from '@/components/ui/CaseStudyNav'
 import heroTablet  from '@/assets/images/dasio/hero-tablet.jpg'
 import photoDasio  from '@/assets/images/dasio/photo-dasio.png'
 import imgDasio01  from '@/assets/images/dasio/img-dasio-01.png'
@@ -60,19 +59,9 @@ const outcomeRoles = [
   { role: '會計', desc: '降低核銷成本，減少人工核對。' },
 ]
 
-const CASE_STUDY_SECTIONS = [
-  { id: 'problem', label: '問題' },
-  { id: 'research', label: '研究洞察' },
-  { id: 'solutions', label: '設計決策' },
-  { id: 'outcome', label: '成果' },
-  { id: 'reflection', label: '反思' },
-]
-
 export function ExpenseApprovalPage() {
   return (
     <div className="w-full bg-white">
-      <CaseStudyNav sections={CASE_STUDY_SECTIONS} />
-
       {/* ── 1. Intro ──────────────────────────────────── */}
       <section className="section-px flex flex-col
                            gap-[16px] pt-[40px] pb-[20px]
