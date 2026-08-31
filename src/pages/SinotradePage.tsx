@@ -514,19 +514,22 @@ export function SinotradePage() {
           className="flex flex-col gap-[12px] md:gap-[16px]">
           {challenges.map((c) => (
             <div key={c.title}
-                 className="bg-[#fafafa] flex flex-col gap-[4px]
+                 className="bg-[#fafafa] flex items-start gap-[8px]
                             rounded-[12px] md:rounded-[20px]
                             p-[20px] md:p-[24px] 3xl:p-[30px]">
-              <p className="font-noto-tc font-medium text-black
-                            text-[15px] md:text-[18px] 3xl:text-[28px]">
-                {c.title}
-              </p>
-              <p className="font-noto-tc text-black leading-[1.6]
-                            text-[13px]
-                            md:text-[15px]
-                            3xl:text-[20px]">
-                {c.desc}
-              </p>
+              <span className="shrink-0 text-black text-[14px] md:text-[18px] 3xl:text-[24px]">➤</span>
+              <div className="flex flex-col gap-[4px]">
+                <p className="font-noto-tc font-medium text-black
+                              text-[15px] md:text-[18px] 3xl:text-[28px]">
+                  {c.title}
+                </p>
+                <p className="font-noto-tc text-black leading-[1.6]
+                              text-[13px]
+                              md:text-[15px]
+                              3xl:text-[20px]">
+                  {c.desc}
+                </p>
+              </div>
             </div>
           ))}
         </motion.div>
