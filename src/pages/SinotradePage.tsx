@@ -5,6 +5,7 @@ import photoCounter from '@/assets/images/sinopac/img-sinopac-01.png'
 import imgForm       from '@/assets/images/sinopac/img-sinopac-02.png'
 import imgDocuments  from '@/assets/images/sinopac/img-sinopac-03.png'
 import imgStatus     from '@/assets/images/sinopac/img-sinopac-04.png'
+import imgMapping    from '@/assets/images/sinopac/paper-to-digital-mapping.jpg'
 
 const fadeUp: Variants = {
   hidden:  { opacity: 0, y: 28 },
@@ -33,6 +34,36 @@ const principles = [
   { title: '只留下流程真正需要的欄位', desc: '欄位是否保留，取決於它對客戶或櫃員是否還有實際用途，而不是它在紙本上是否存在過。' },
   { title: '把實體流程整合到數位流程',   desc: '拍照 → 簽名 → 送件 應該是一段流程。' },
   { title: '降低流程的不確定性',         desc: '使用者需要知道目前做到哪？下一步是什麼？送件成功了嗎？' },
+]
+
+const challenges = [
+  {
+    title: '法規要求的揭露內容不能拿掉，只能換句話說',
+    desc:  '「同意開戶暨契約重要內容及揭露風險確認聲明書」裡有一段勾選內容，原本想整段拿掉來簡化流程，但那是法規要求聲明書必須呈現的結果，不能移除。最後把方向從「刪減內容」改成「重新設計文案跟呈現方式」，讓客戶更容易讀懂自己在勾什麼，而不是被迫略過。',
+  },
+  {
+    title: '多層次覆核不能省，但可以不讓客戶感覺到',
+    desc:  '高風險客戶的案件，除了業務主管跟分公司經理人，還要多一層區督導覆核，這段流程沒辦法省略。我把它留在後台審核鏈裡處理，確保複雜的覆核邏輯留在客戶看不到的地方，不拖慢客戶端「填寫→送件」的體感速度。',
+  },
+]
+
+const overview = [
+  {
+    title: 'Project Objective',
+    desc:  '永豐金證券的開戶流程仍高度仰賴紙本作業，客戶需要重複填寫資料，資料分散在多份文件中也容易出錯。這個專案的目標是透過 iPad 開戶系統，把紙本流程轉換成營業員能順利操作、客戶也能理解的數位服務。',
+  },
+  {
+    title: 'Role & Deliverables',
+    desc:  '擔任 Product Designer，負責 UX 規劃、UI 設計與交付，並實際參與 HTML/CSS 切版。從盤點紙本表單的欄位邏輯開始，重新定義營業員與客戶的角色分工，產出可直接交付開發的設計文件。',
+  },
+  {
+    title: 'Challenges',
+    desc:  '金融業有許多限制不是設計能改動的：法規要求的揭露內容不能刪減，只能重新設計呈現方式；高風險客戶需要多一層區督導覆核，這段流程無法省略，只能確保它留在後台、不影響客戶端的體感速度。',
+  },
+  {
+    title: 'Outcomes & Impact',
+    desc:  '客戶端需簽署／確認的文件從 14 項精簡為 9 項，減少 36%。營業員不需要在紙本、拍照 App、系統之間來回切換，客戶減少重複填寫的負擔，作業流程也降低了紙本錯誤。',
+  },
 ]
 
 const decisions = [
@@ -113,7 +144,7 @@ export function SinotradePage() {
           transition={{ delay: 0.16 }}
           className="flex flex-wrap gap-[24px] md:gap-[48px]">
           {[
-            { label: '專案時程', value: '2018.11 - 2019.01', font: 'font-noto' },
+            { label: '專案時程', value: '2018.02 - 2019.07', font: 'font-noto' },
             { label: '專案角色', value: 'Product Designer',   font: 'font-noto' },
             { label: '負責項目', value: 'UX規劃、UI設計與交付、Html/CSS撰寫', font: 'font-noto-tc' },
           ].map(({ label, value, font }) => (
@@ -139,6 +170,48 @@ export function SinotradePage() {
           className="w-full object-cover
                      h-[240px] md:h-[400px] xl:h-[480px] 3xl:h-[550px]"
         />
+      </section>
+
+      {/* ── 2.5 Project Overview ──────────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pt-[40px] pb-[20px]
+                           md:gap-[20px] md:pt-[50px] md:pb-[30px]
+                           3xl:pt-[64px] 3xl:pb-[40px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          專案總覽
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="grid grid-cols-1 gap-[12px]
+                     md:grid-cols-2 md:gap-[16px]
+                     3xl:gap-[20px]">
+          {overview.map((o, i) => (
+            <div key={o.title}
+                 className="bg-[#fafafa] flex flex-col gap-[8px]
+                            rounded-[12px] md:rounded-[20px]
+                            p-[20px] md:p-[24px] 3xl:p-[30px]">
+              <div className="flex items-center gap-[10px]">
+                <span className="font-poppins font-bold
+                                  text-[15px] md:text-[18px] 3xl:text-[26px]"
+                      style={{ color: ACCENT }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="font-poppins font-medium text-black
+                              text-[15px] md:text-[18px] 3xl:text-[26px]">
+                  {o.title}
+                </p>
+              </div>
+              <p className="font-noto-tc text-black leading-[1.7]
+                            text-[13px] md:text-[15px] 3xl:text-[20px]">
+                {o.desc}
+              </p>
+            </div>
+          ))}
+        </motion.div>
       </section>
 
       {/* ── 3. Background ─────────────────────────────── */}
@@ -415,6 +488,85 @@ export function SinotradePage() {
               </p>
             </div>
           ))}
+        </motion.div>
+      </section>
+
+      {/* ── 8.5 Challenges & Trade-offs ────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pb-[40px]
+                           md:gap-[20px] md:pb-[50px]
+                           3xl:gap-[24px] 3xl:pb-[64px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          挑戰與取捨
+        </motion.p>
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc text-black leading-[1.9]
+                     text-[14px] md:text-[17px] 3xl:text-[22px]">
+          金融業有很多限制不是設計能改動的，真正的工作是分辨哪些是可以簡化的，哪些不行、只能換個方式處理。
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="flex flex-col gap-[12px] md:gap-[16px]">
+          {challenges.map((c) => (
+            <div key={c.title}
+                 className="bg-[#fafafa] flex flex-col gap-[4px]
+                            rounded-[12px] md:rounded-[20px]
+                            p-[20px] md:p-[24px] 3xl:p-[30px]">
+              <p className="font-noto-tc font-medium text-black
+                            text-[15px] md:text-[18px] 3xl:text-[28px]">
+                {c.title}
+              </p>
+              <p className="font-noto-tc text-black leading-[1.6]
+                            text-[13px]
+                            md:text-[15px]
+                            3xl:text-[20px]">
+                {c.desc}
+              </p>
+            </div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* ── 8.6 Method: Paper-to-Digital Mapping ───────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pb-[40px]
+                           md:gap-[20px] md:pb-[50px]
+                           3xl:gap-[24px] 3xl:pb-[64px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          設計方法
+        </motion.p>
+        <motion.h2
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc font-bold text-black
+                     text-[18px] leading-[1.5]
+                     md:text-[26px] xl:text-[30px] 3xl:text-[40px]">
+          我怎麼把紙本欄位邏輯，轉換成數位表單
+        </motion.h2>
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc text-black leading-[1.9] max-w-[1100px]
+                     text-[14px] md:text-[17px] 3xl:text-[22px]">
+          開戶文件裡有不少像 W-8BEN 這類法規要求的紙本表格。我逐一標註每個紙本欄位，確認它在數位流程裡對應到哪個欄位、是否能合併或省略，再決定新表單的呈現順序，而不是直接把紙本版面原封不動搬上螢幕。
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="bg-[#fafafa] flex items-center justify-center
+                     rounded-[16px] md:rounded-[24px]
+                     p-[16px] md:p-[24px] xl:p-[32px]">
+          <img
+            src={imgMapping}
+            alt="紙本表單欄位對應數位表單的標註示意圖"
+            className="block w-full max-w-[1100px] rounded-[8px] md:rounded-[12px]"
+          />
         </motion.div>
       </section>
 
