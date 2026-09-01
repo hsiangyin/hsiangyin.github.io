@@ -540,12 +540,6 @@ export function SinotradePage() {
                            gap-[16px] pb-[40px]
                            md:gap-[20px] md:pb-[50px]
                            3xl:gap-[24px] 3xl:pb-[64px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          設計方法
-        </motion.p>
         <motion.h2
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="font-noto-tc font-bold text-black
@@ -578,13 +572,6 @@ export function SinotradePage() {
                            gap-[16px] pb-[40px]
                            md:gap-[20px] md:pb-[50px]
                            3xl:gap-[24px] 3xl:pb-[64px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          設計決策
-        </motion.p>
-
         <div className="flex flex-col gap-[40px] md:gap-[50px]">
           {decisions.map((d) => (
             <div key={d.title} className="flex flex-col gap-[12px] md:gap-[16px]">

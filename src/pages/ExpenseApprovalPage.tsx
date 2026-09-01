@@ -14,6 +14,42 @@ const fadeUp: Variants = {
 
 const BADGE_ACCENT = '#7718d6'
 
+const overview = [
+  {
+    title: 'Project Objective',
+    desc:  '大創的費用申請流程完全仰賴紙本與 Excel，員工、主管、會計三個角色之間靠人工核對與口頭確認銜接。這個專案的目標，是把分散在紙本裡的審核邏輯，轉換成員工看得懂、會計也能直接串接既有會計系統的線上申請流程。',
+  },
+  {
+    title: 'Role & Deliverables',
+    desc:  '擔任 Product Designer，負責流程定義、UX 規劃與 UI 設計交付。因為沒有機會直接訪談員工與主管，我從 PM 轉述的需求與真實駁回紀錄裡，重新盤點費用申請、差旅申請共用的簽核邏輯，產出可直接交付開發的畫面與規格。',
+  },
+  {
+    title: 'Challenges',
+    desc:  '同一張差旅費申請單，店鋪員工跟其他部門員工的簽核層級完全不同，還要支援跨部門彈性簽核，並區分「串簽 / 會辦 / 擇辦 / 通知」四種簽核方式——這些都是既有的作業邏輯，設計沒辦法簡化掉，只能做成一套可設定的簽核引擎。',
+  },
+  {
+    title: 'Outcomes & Impact',
+    desc:  '費用申請、差旅申請整合進同一套線上簽核流程，附件跟著申請書走，不再靠私訊補件；核銷完成後系統直接產生傳票檔，會計不需要再把資料手動謄寫進會計系統一次。',
+  },
+]
+
+const problems = [
+  { title: '填單時得自己查匯率',           desc: '外幣費用申請沒有系統化的匯率來源，員工得自己上網查、手動填，金額很容易跟著算錯。' },
+  { title: '發票漏傳，只能私訊補件',       desc: '送出申請後才發現缺附件，系統沒有補件通知機制，只能私訊員工確認，溝通成本高又耗時。' },
+  { title: '會計手動核對金額，容易出錯又退件', desc: '單據到會計手上後，金額加總靠人工核對，算錯就得退件重送，員工跟會計都要重新來一次。' },
+]
+
+const challenges = [
+  {
+    title: '同單位不同角色，簽核層級完全不同',
+    desc:  '差旅費申請單，店鋪員工要走「店長 → 區店或區主管 → 承辦人員 → 長官核決」，其他部門員工卻是「部門主管 → 承辦人員 → 長官核決」，兩條路徑沒辦法共用同一套固定簽核鏈。只能把「誰簽給誰」做成可依單位、依角色設定的簽核層級，而不是寫死在流程裡。',
+  },
+  {
+    title: '不是每個簽核都一樣，也不能都用退回處理',
+    desc:  '有些關卡是一關簽完才能給下一關的「串簽」，任何人都能退件；有些是多人同時收到、必須全部簽完才能往下走的「會辦」，不能退件；有些只需要其中一人執行的「擇辦」；還有純粹知會、不需簽核的「通知」。這四種邏輯都是既有的作業方式，設計上只能把它們變成清楚可辨識的狀態，不能簡化成單一流程。',
+  },
+]
+
 const principles = [
   { title: '系統自動帶入已知資料', desc: '姓名、部門這類資料，系統原本就存在，避免讓使用者重複輸入。' },
   { title: '附件跟著申請書走',     desc: '資料的完整性不該建立在使用者記不記得補交上，而該建立在流程本身有沒有把它接住。' },
@@ -34,29 +70,29 @@ function NumberBadge({ n }: { n: number }) {
 
 const designSections = [
   {
-    title: '系統自動帶入資料',
-    desc:  '系統直接帶入基本資料，讓員工只需要填寫必要資料，減少重複輸入。',
+    title: '系統自動帶入已知資料',
+    desc:  '姓名、部門這類系統本來就有的資料，不用員工每次申請都重新輸入，減少重複填寫，也減少手動輸入造成的資料落差。',
     image: imgDasio03,
     alt:   '系統自動帶入資料介面截圖',
   },
   {
-    title: '附件集中管理',
-    desc:  '附件上傳置到申請書中，讓資料送件不易遺失，減少補件情況發生。',
+    title: '附件跟著申請書走，取代私訊補件',
+    desc:  '斷點 B 是發票漏傳，系統原本沒有通知機制，只能靠私訊員工確認。我把附件上傳直接放進申請書流程裡，缺件狀態能被看見，不用再另外私訊追問。',
     image: imgDasio04,
     alt:   '附件集中管理介面截圖',
   },
   {
-    title: '申請書審核進度',
-    desc:  '主管能夠清楚看到申請書的審核狀況，以利追蹤。',
+    title: '簽核進度公開查詢，減少來回確認',
+    desc:  '員工跟主管能直接查看單據卡在哪個簽核關卡、誰還沒處理，不用再靠問的來確認進度。',
     image: imgDasio05,
     alt:   '申請書審核進度介面截圖',
   },
 ]
 
 const outcomeRoles = [
-  { role: '員工', desc: '降低理解成本，提升填寫效率。' },
-  { role: '主管', desc: '快速掌握申請內容，減少來回確認。' },
-  { role: '會計', desc: '降低核銷成本，減少人工核對。' },
+  { role: '員工', desc: '不用自己查匯率、算金額，也不用因為缺發票被私訊追問，理解成本降低。' },
+  { role: '主管', desc: '能直接看到單據卡在哪一關、誰還沒簽，不用再問人才能掌握進度。' },
+  { role: '會計', desc: '金額由系統計算，減少人工核對出錯；核銷完成後直接產生傳票檔，不用再把資料手動輸入會計系統一次。' },
 ]
 
 export function ExpenseApprovalPage() {
@@ -121,6 +157,48 @@ export function ExpenseApprovalPage() {
           className="w-full object-cover
                      h-[240px] md:h-[400px] xl:h-[480px] 3xl:h-[550px]"
         />
+      </section>
+
+      {/* ── 2.5 Project Overview ──────────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pt-[40px] pb-[20px]
+                           md:gap-[20px] md:pt-[50px] md:pb-[30px]
+                           3xl:pt-[64px] 3xl:pb-[40px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          專案總覽
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="grid grid-cols-1 gap-[12px]
+                     md:grid-cols-2 md:gap-[16px]
+                     3xl:gap-[20px]">
+          {overview.map((o, i) => (
+            <div key={o.title}
+                 className="bg-[#fafafa] flex flex-col gap-[8px]
+                            rounded-[12px] md:rounded-[20px]
+                            p-[20px] md:p-[24px] 3xl:p-[30px]">
+              <div className="flex items-center gap-[10px]">
+                <span className="font-poppins font-bold
+                                  text-[15px] md:text-[18px] 3xl:text-[26px]"
+                      style={{ color: BADGE_ACCENT }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="font-poppins font-medium text-black
+                              text-[15px] md:text-[18px] 3xl:text-[26px]">
+                  {o.title}
+                </p>
+              </div>
+              <p className="font-noto-tc text-[#555] leading-[1.7]
+                            text-[13px] md:text-[15px] 3xl:text-[20px]">
+                {o.desc}
+              </p>
+            </div>
+          ))}
+        </motion.div>
       </section>
 
       {/* ── 3. Background ─────────────────────────────── */}
@@ -195,29 +273,7 @@ export function ExpenseApprovalPage() {
           </p>
           <p className="font-noto-tc text-[#555] leading-[1.9]
                         text-[14px] md:text-[17px] 3xl:text-[22px]">
-            我請 PM 把過去的紙本申請單跟駁回紀錄找出來，讓真實發生過的錯誤，而不是我的猜測，告訴我使用者卡在哪裡。
-          </p>
-          <div className="flex flex-col gap-[8px]">
-            <p className="font-noto-tc text-[#555] leading-[1.9]
-                          text-[14px] md:text-[17px] 3xl:text-[22px]">
-              盤點後發現幾個問題：
-            </p>
-            <p className="font-noto-tc text-[#555] leading-[1.9]
-                          text-[14px] md:text-[17px] 3xl:text-[22px]">
-              ① 系統本來就知道的姓名、部門這類資料，員工每次申請都要重新打一次
-            </p>
-            <p className="font-noto-tc text-[#555] leading-[1.9]
-                          text-[14px] md:text-[17px] 3xl:text-[22px]">
-              ② 附件透過信件、紙本、口頭轉交，送到會計手上時常常缺件
-            </p>
-            <p className="font-noto-tc text-[#555] leading-[1.9]
-                          text-[14px] md:text-[17px] 3xl:text-[22px]">
-              ③ 申請書送出後，員工跟主管都不知道它卡在哪個階段，只能用問的
-            </p>
-          </div>
-          <p className="font-noto-tc text-[#555] leading-[1.9]
-                        text-[14px] md:text-[17px] 3xl:text-[22px]">
-            三個問題擺在一起看，我才確定了真正要解決的任務：
+            我請 PM 把過去的紙本申請單跟駁回紀錄找出來，讓真實發生過的錯誤，而不是我的猜測，告訴我使用者卡在哪裡。把這些紀錄畫回流程圖上後，問題不再是模糊的「不好用」，而是流程上三個明確會卡住的位置。
           </p>
           <p className="font-noto-tc font-semibold text-black
                         text-[16px] leading-[1.5]
@@ -225,14 +281,80 @@ export function ExpenseApprovalPage() {
             「把會計腦中的判斷邏輯，翻譯成員工不需要學習就能理解的語言。」
           </p>
         </motion.div>
+      </section>
 
-        {/* Flow diagram image */}
+      {/* ── 5a. Problem Definition ─────────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pb-[40px]
+                           md:gap-[20px] md:pb-[50px]
+                           3xl:gap-[24px] 3xl:pb-[64px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          問題定義
+        </motion.p>
+        <motion.h2
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc font-semibold text-black
+                     text-[20px] leading-[1.5]
+                     md:text-[28px] xl:text-[32px] 3xl:text-[44px]">
+          流程圖上有三個實際發生過的斷點
+        </motion.h2>
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc text-[#555] leading-[1.9]
+                     text-[14px] md:text-[17px] 3xl:text-[22px]">
+          我把過去的駁回紀錄對回流程圖，抓出三個具體的斷點。
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="grid grid-cols-1 gap-[12px]
+                     md:grid-cols-3 md:gap-[16px]
+                     3xl:gap-[20px]">
+          {problems.map((p, i) => (
+            <div key={p.title}
+                 className="bg-[#fafafa] flex flex-col gap-[4px]
+                            rounded-[12px] md:rounded-[20px]
+                            p-[20px] md:p-[24px] 3xl:p-[30px]">
+              <div className="flex items-center gap-[8px]">
+                <NumberBadge n={i + 1} />
+                <p className="font-noto-tc font-medium text-black flex-1
+                              text-[15px] md:text-[18px] 3xl:text-[28px]">
+                  {p.title}
+                </p>
+              </div>
+              <p className="font-noto-tc text-[#555] leading-[1.6]
+                            pl-[40px] text-[13px]
+                            md:pl-[46px] md:text-[15px]
+                            3xl:pl-[58px] 3xl:text-[20px]">
+                {p.desc}
+              </p>
+            </div>
+          ))}
+        </motion.div>
+
         <motion.img
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
           src={imgDasio01}
-          alt="費用申請流程圖"
+          alt="費用申請流程圖，標註出三個實際發生的斷點 A、B、C"
           className="block w-full"
         />
+
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc text-[#555] leading-[1.9]
+                     text-[14px] md:text-[17px] 3xl:text-[22px]">
+          三個斷點擺在一起看，方向很清楚：
+        </motion.p>
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc font-semibold text-black
+                     text-[16px] leading-[1.5]
+                     md:text-[22px] xl:text-[26px] 3xl:text-[36px]">
+          「先讓斷點消失，而不是先讓畫面變好看。」
+        </motion.p>
       </section>
 
       {/* ── 5b. Design Principles ─────────────────────── */}
@@ -274,6 +396,50 @@ export function ExpenseApprovalPage() {
                             3xl:pl-[58px] 3xl:text-[20px]">
                 {p.desc}
               </p>
+            </div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* ── 5c. Challenges & Trade-offs ────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pb-[40px]
+                           md:gap-[20px] md:pb-[50px]
+                           3xl:gap-[24px] 3xl:pb-[64px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          挑戰與取捨
+        </motion.p>
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc text-[#555] leading-[1.9]
+                     text-[14px] md:text-[17px] 3xl:text-[22px]">
+          有些複雜是可以簡化的，有些是組織原本就存在的規則，設計只能想辦法把它變得清楚，不能假裝它不存在。
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="flex flex-col gap-[12px] md:gap-[16px]">
+          {challenges.map((c) => (
+            <div key={c.title}
+                 className="bg-[#fafafa] flex items-start gap-[8px]
+                            rounded-[12px] md:rounded-[20px]
+                            p-[20px] md:p-[24px] 3xl:p-[30px]">
+              <span className="shrink-0 text-black text-[14px] md:text-[18px] 3xl:text-[24px]">➤</span>
+              <div className="flex flex-col gap-[4px]">
+                <p className="font-noto-tc font-medium text-black
+                              text-[15px] md:text-[18px] 3xl:text-[28px]">
+                  {c.title}
+                </p>
+                <p className="font-noto-tc text-[#555] leading-[1.6]
+                              text-[13px]
+                              md:text-[15px]
+                              3xl:text-[20px]">
+                  {c.desc}
+                </p>
+              </div>
             </div>
           ))}
         </motion.div>

@@ -5,6 +5,8 @@ import screenCall     from '@/assets/images/wdopa/screen-callnumber.png'
 import photoResearch  from '@/assets/images/wdopa/photo-research.png'
 import screenDoc      from '@/assets/images/wdopa/screen-document.png'
 import screenSign     from '@/assets/images/wdopa/screen-signature.png'
+import beforeCall     from '@/assets/images/wdopa/before-callnumber-v1.png'
+import afterCall      from '@/assets/images/wdopa/after-callnumber-v3.png'
 
 const fadeUp: Variants = {
   hidden:  { opacity: 0, y: 28 },
@@ -37,6 +39,38 @@ function SwitchBadge() {
     </div>
   )
 }
+
+/* ── overview data ───────────────────────────────────────── */
+
+const overview = [
+  {
+    title: 'Project Objective',
+    desc:  '彰化、員林、南投三個就業中心跟埔里分站共用的叫號系統已經用了超過 12 年，常常當機、服務項目沒辦法直接變更。這個專案的目標是升級系統，把叫號、雙螢幕、電子簽名、文件拍攝整合成一段連續的服務流程。',
+  },
+  {
+    title: 'Role & Deliverables',
+    desc:  '擔任 Product Designer，負責流程定義、服務流程規劃、UI/UX 設計與設計交付，涵蓋叫號、雙螢幕、電子簽名、文件拍攝四大功能模組的介面設計。',
+  },
+  {
+    title: 'Challenges',
+    desc:  '舊系統包袱不能一次砍掉重練，要在四個據點持續運作的前提下逐步汰換；客戶在看過第一版後才提出的需求，也得在既有設計基礎上加回去，而不是重新來過。',
+  },
+  {
+    title: 'Outcomes & Impact',
+    desc:  '從四個各自獨立的分頁籤，整合成一套連續的互動導引系統，服務流程從 7 步驟、4 次系統切換，優化為 5 步驟、0 次切換。',
+  },
+]
+
+const challenges = [
+  {
+    title: '舊系統包袱不能一次砍掉重練',
+    desc:  '現行系統自民國 102 年建置，已經使用超過 12 年，常有當機、軟硬體不相容的狀況。但升級不是砍掉重練，是要在彰化、員林、南投三個就業中心跟埔里分站，四個據點都持續運作的前提下逐步汰換，不能中斷現場的服務。',
+  },
+  {
+    title: '客戶在第一版定案後才追加的需求',
+    desc:  '第一版設計只規劃了叫號、重叫、完成、轉櫃、暫停、預約六個功能，沒有涵蓋「櫃員遇到疑難案件需要主管支援」跟「民眾過號未到」這兩種現場情境。客戶看過第一版後才提出這兩個需求，我在既有設計基礎上加了「呼叫主管」跟「未臨櫃」兩個按鈕，並把狀態欄位從純文字改成顏色區分，讓櫃員一眼辨識。',
+  },
+]
 
 /* ── current-state step data ────────────────────────────── */
 
@@ -111,6 +145,96 @@ export function CounterServicePage() {
         />
       </motion.section>
 
+      {/* ── 2.5 Project Overview ──────────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pt-[40px] pb-[20px]
+                           md:gap-[20px] md:pt-[50px] md:pb-[30px]
+                           3xl:pt-[64px] 3xl:pb-[40px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          專案總覽
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="grid grid-cols-1 gap-[12px]
+                     md:grid-cols-2 md:gap-[16px]
+                     3xl:gap-[20px]">
+          {overview.map((o, i) => (
+            <div key={o.title}
+                 className="bg-[#fafafa] flex flex-col gap-[8px]
+                            rounded-[12px] md:rounded-[20px]
+                            p-[20px] md:p-[24px] 3xl:p-[30px]">
+              <div className="flex items-center gap-[10px]">
+                <span className="font-poppins font-bold text-[#7718d6]
+                                  text-[15px] md:text-[18px] 3xl:text-[26px]">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="font-poppins font-medium text-black
+                              text-[15px] md:text-[18px] 3xl:text-[26px]">
+                  {o.title}
+                </p>
+              </div>
+              <p className="font-noto-tc text-black leading-[1.7]
+                            text-[13px] md:text-[15px] 3xl:text-[20px]">
+                {o.desc}
+              </p>
+            </div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* ── 2.6 Background ─────────────────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[12px] py-[40px]
+                           md:gap-[16px] md:py-[50px]
+                           3xl:gap-[20px] 3xl:py-[64px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          專案背景
+        </motion.p>
+        <motion.h2
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc font-bold text-black
+                     text-[18px] leading-[1.5]
+                     md:text-[26px] xl:text-[30px] 3xl:text-[40px]">
+          櫃台想把服務做好，卡住的卻是一套用了 12 年的老系統
+        </motion.h2>
+        <motion.div
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="flex flex-col gap-[16px] max-w-[1100px]">
+          <p className="font-noto-tc text-black leading-[1.9]
+                        text-[14px] md:text-[17px] 3xl:text-[22px]">
+            中彰投分署所屬的三個就業中心跟埔里分站，現行的叫號系統自民國 102 年建置，至今已經超過 12 年。長期使用下來，系統常常當機、軟硬體之間也無法互相配合，服務項目沒辦法因應業務調整直接變更。
+          </p>
+          <p className="font-noto-tc text-black leading-[1.9]
+                        text-[14px] md:text-[17px] 3xl:text-[22px]">
+            勞動部勞動力發展署中彰投分署希望汰換升級這套系統，把原本各自獨立的叫號、雙螢幕、電子簽名、文件拍攝整合成一段連續的服務流程，同時要在四個持續運作中的據點逐步導入，不能中斷現場服務。
+          </p>
+          <p className="font-noto-tc text-black leading-[1.9]
+                        text-[14px] md:text-[17px] 3xl:text-[22px]">
+            系統老舊很好理解，真正困難的是先釐清櫃員實際服務民眾時，卡在哪些系統切換的環節，再把它轉化成一套櫃員能順暢操作、民眾也感覺不到系統存在的服務流程。
+          </p>
+        </motion.div>
+      </section>
+
+      {/* ── 4. Research Photo ───────────────────────────── */}
+      <motion.section
+        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+        className="section-px w-full"
+      >
+        <img
+          src={photoResearch}
+          alt="就業服務中心實地觀察"
+          className="block w-full max-w-[1100px] mx-auto object-cover rounded-[24px]
+                     h-[200px] md:h-[340px] xl:h-[420px] 3xl:h-[500px]"
+        />
+      </motion.section>
+
       {/* ── 3. Problem Statement ────────────────────────── */}
       <motion.section
         id="problem"
@@ -121,6 +245,10 @@ export function CounterServicePage() {
                    md:gap-[20px] md:pt-[80px] md:pb-[40px]
                    3xl:pt-[100px] 3xl:pb-[50px]"
       >
+        <p className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          專案目標
+        </p>
         <h2 className="font-poppins font-semibold text-black
                        text-[18px] leading-[1.5]
                        md:text-[24px]
@@ -136,25 +264,18 @@ export function CounterServicePage() {
         </p>
       </motion.section>
 
-      {/* ── 4. Research Photo ───────────────────────────── */}
-      <motion.section
-        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-        className="section-px w-full"
-      >
-        <img
-          src={photoResearch}
-          alt="就業服務中心實地觀察"
-          className="block w-full max-w-[1100px] mx-auto object-cover rounded-[24px]
-                     h-[200px] md:h-[340px] xl:h-[420px] 3xl:h-[500px]"
-        />
-      </motion.section>
-
       {/* ── 5. Research Findings ────────────────────────── */}
       <section id="research" className="section-px flex flex-col
                            scroll-mt-[110px] md:scroll-mt-[125px] 3xl:scroll-mt-[160px]
                            gap-[16px] pt-[40px] pb-[30px]
                            md:gap-[20px] md:pt-[50px]
                            3xl:pt-[50px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          了解使用者
+        </motion.p>
         <motion.h2
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="font-poppins font-semibold text-black
@@ -209,6 +330,12 @@ export function CounterServicePage() {
       <section className="section-px flex flex-col
                            gap-[16px] py-[40px]
                            md:gap-[20px] md:py-[50px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          問題定義
+        </motion.p>
         <motion.h2
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="font-poppins font-semibold text-black
@@ -288,6 +415,101 @@ export function CounterServicePage() {
               </p>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* ── 7.5 Challenges & Trade-offs ─────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pb-[40px]
+                           md:gap-[20px] md:pb-[50px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          挑戰與取捨
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="flex flex-col gap-[12px] md:gap-[16px]">
+          {challenges.map((c) => (
+            <div key={c.title}
+                 className="bg-[#fafafa] rounded-[16px] md:rounded-[20px]
+                            p-[20px] md:p-[24px] 3xl:p-[30px]
+                            flex items-start gap-[8px]">
+              <span className="shrink-0 text-black text-[14px] md:text-[18px] 3xl:text-[24px]">➤</span>
+              <div className="flex flex-col gap-[4px]">
+                <p className="font-noto-tc font-medium text-black
+                              text-[15px] md:text-[18px] 3xl:text-[28px]">
+                  {c.title}
+                </p>
+                <p className="font-noto-tc text-black leading-[1.7]
+                              text-[13px] md:text-[15px] 3xl:text-[24px]
+                              3xl:leading-[36px]">
+                  {c.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* ── 7.6 Before & After ──────────────────────────── */}
+      <section className="section-px flex flex-col
+                           gap-[16px] pb-[40px]
+                           md:gap-[20px] md:pb-[50px]">
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto text-[#767676]
+                     text-[13px] md:text-[16px] 3xl:text-[20px]">
+          設計決策
+        </motion.p>
+        <motion.h2
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-poppins font-semibold text-black
+                     text-[18px] md:text-[24px] xl:text-[28px] 3xl:text-[36px]">
+          從分頁籤設計，到整合的互動導引系統
+        </motion.h2>
+        <motion.p
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+          className="font-noto-tc text-black leading-[1.8]
+                     text-[14px] md:text-[16px] xl:text-[18px] 3xl:text-[24px]">
+          第一版的「叫號」只是跟「雙螢幕」「電子簽名」「文件拍攝」平行並列的分頁籤，功能彼此獨立。客戶追加需求後，我把常用功能整合進同一個畫面，雙螢幕、電子簽名、文件拍攝變成右上角的圖示捷徑，同時新增「呼叫主管」「未臨櫃」，並把狀態欄位改成顏色區分，讓櫃員操作時能一眼掌握進度。
+        </motion.p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="flex flex-col items-center justify-center gap-[16px] md:gap-[24px]
+                       p-[24px] md:p-[40px] xl:p-[48px]
+                       rounded-[16px] md:rounded-l-[20px] md:rounded-r-none"
+            style={{ backgroundColor: '#fafafa' }}>
+            <p className="font-poppins font-bold text-black
+                          text-[16px] md:text-[20px] 3xl:text-[28px]">
+              第一版
+            </p>
+            <img
+              src={beforeCall}
+              alt="第一版叫號畫面，功能分散在各自的分頁籤"
+              className="w-full max-w-[480px] rounded-[8px] md:rounded-[12px]"
+            />
+          </motion.div>
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="flex flex-col items-center justify-center gap-[16px] md:gap-[24px]
+                       p-[24px] md:p-[40px] xl:p-[48px]
+                       rounded-[16px] md:rounded-r-[20px] md:rounded-l-none"
+            style={{ backgroundColor: '#d3d3d3' }}>
+            <p className="font-poppins font-bold text-black
+                          text-[16px] md:text-[20px] 3xl:text-[28px]">
+              追加需求後
+            </p>
+            <img
+              src={afterCall}
+              alt="整合後的互動導引系統，新增呼叫主管與未臨櫃功能，狀態改為顏色區分"
+              className="w-full max-w-[480px] rounded-[8px] md:rounded-[12px]"
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -380,27 +602,8 @@ export function CounterServicePage() {
           className="font-poppins font-semibold text-black
                      text-[18px] md:text-[24px] xl:text-[28px] 3xl:text-[36px]"
         >
-          整合後的服務流程，對三個角色都帶來改變
+          成功將服務優化為 5 步驟、0 次系統切換
         </motion.h2>
-
-        {/* Outcome banner */}
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="bg-[#7718d6] rounded-[16px] md:rounded-[24px]
-                     px-[20px] py-[20px]
-                     md:px-[40px] md:py-[24px]
-                     3xl:px-[60px] 3xl:py-[30px]
-                     flex flex-col gap-[8px]"
-        >
-          <p className="font-poppins font-medium text-white
-                         text-[15px] md:text-[20px] 3xl:text-[32px]">
-            成功將服務優化為 5 步驟、0 次系統切換
-          </p>
-          <p className="font-noto-tc text-white leading-[1.7]
-                         text-[13px] md:text-[15px] 3xl:text-[24px]">
-            櫃員進行測試能順利完成流程、不需額外說明、減少系統切換。
-          </p>
-        </motion.div>
 
         {/* 3 impact cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px] 3xl:gap-[20px]">
