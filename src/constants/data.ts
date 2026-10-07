@@ -30,7 +30,7 @@ export const expertiseList: Expertise[] = [
 export const projectList: Project[] = [
   {
     id: 'securities-account',
-    title: '證券開戶從「紙本填寫」轉為「專業且快速的數位服務體驗」，同時優化客戶安心感與櫃台作業效率',
+    title: '證券開戶從「紙本填寫」轉為「數位服務體驗」',
     description: '',
     tags: ['金融科技', '數位轉型', '流程設計'],
     imageUrl: '',
@@ -38,7 +38,7 @@ export const projectList: Project[] = [
   },
   {
     id: 'daiso',
-    title: '複雜的費用核銷規則轉化為可被理解的申請流程，降低跨部門協作成本',
+    title: '把複雜的費用核銷規則，變成員工看得懂的申請流程',
     description: '',
     tags: ['企業內部系統', '流程設計', '簽核流程'],
     imageUrl: '',
@@ -46,7 +46,7 @@ export const projectList: Project[] = [
   },
   {
     id: 'counter-service',
-    title: '分散的櫃台服務流程整合為一段可被執行的服務體驗',
+    title: '將分散的櫃台服務流程，整合成一條不用切換的服務體驗',
     description: '',
     tags: ['服務設計', '政府服務', '資訊架構'],
     imageUrl: '',

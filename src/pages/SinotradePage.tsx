@@ -1,672 +1,236 @@
-import { motion } from 'framer-motion'
-import type { Variants } from 'framer-motion'
+import { ClipboardList, Workflow, SearchCheck } from 'lucide-react'
+import { CaseStudyTemplate } from '@/components/case-study/CaseStudyTemplate'
+import type { CaseStudyData } from '@/components/case-study/types'
 import heroTablet   from '@/assets/images/sinopac/hero-tablet.jpg'
 import photoCounter from '@/assets/images/sinopac/img-sinopac-01.png'
-import imgForm       from '@/assets/images/sinopac/img-sinopac-02.png'
-import imgDocuments  from '@/assets/images/sinopac/img-sinopac-03.png'
-import imgStatus     from '@/assets/images/sinopac/img-sinopac-04.png'
-import imgMapping    from '@/assets/images/sinopac/paper-to-digital-mapping.jpg'
+import imgDocList   from '@/assets/images/sinopac/img-sinopac-doclist.jpg'
+import imgProgress  from '@/assets/images/sinopac/img-sinopac-progress.png'
 
-const fadeUp: Variants = {
-  hidden:  { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
-}
+// 永豐金證券：臨櫃 iPad 數位開戶（案例範本，另外兩個案例照這個架構排）
+const data: CaseStudyData = {
+  hero:     { src: heroTablet, alt: '數位開戶 iPad 產品示意圖' },
+  category: 'Process Redesign',
+  title:    '證券開戶從「紙本填寫」轉為「數位服務體驗」',
+  meta: [
+    { label: '專案時程', value: '2018.09 - 2019.07' },
+    { label: '專案角色', value: 'Product Designer' },
+    { label: '負責項目', value: 'UX 規劃、UI 設計與交付、HTML/CSS 切版', font: 'font-noto-tc' },
+  ],
 
-const ACCENT = '#7718d6'
-
-/* ── data ────────────────────────────────────────────── */
-
-const goals = [
-  { title: '推動臨櫃數位轉型',   desc: '以 iPad 取代紙本開戶，建立數位化服務流程。' },
-  { title: '提升開戶效率',       desc: '整合資料填寫、證件拍攝、電子簽名與送件流程，減少人工處理時間。' },
-  { title: '降低服務中斷',       desc: '避免櫃員於不同設備、紙本與系統間反覆切換，提供更流暢的服務體驗。' },
-  { title: '提升客戶體驗',       desc: '讓客戶能在櫃員引導下，以簡單、清楚的方式完成開戶流程。' },
-  { title: '建立可追蹤的送件流程', desc: '提供案件送審狀態查詢，提升櫃員對流程進度的掌握度。' },
-]
-
-const problems = [
-  { title: '紙本欄位過多',       desc: '許多欄位是為紙本審核設計，不是每個都需要出現在數位流程中，需要重新篩選。' },
-  { title: '拍照、簽名是獨立流程', desc: '櫃員需要來回切換作業。' },
-  { title: '送件後沒有狀態回饋', desc: '無法確認案件是否完成' },
-]
-
-const principles = [
-  { title: '只留下流程真正需要的欄位', desc: '欄位是否保留，取決於它對客戶或櫃員是否還有實際用途，而不是它在紙本上是否存在過。' },
-  { title: '把實體流程整合到數位流程',   desc: '拍照 → 簽名 → 送件 應該是一段流程。' },
-  { title: '降低流程的不確定性',         desc: '使用者需要知道目前做到哪？下一步是什麼？送件成功了嗎？' },
-]
-
-const challenges = [
-  {
-    title: '法規要求的揭露內容不能拿掉，只能換句話說',
-    desc:  '「同意開戶暨契約重要內容及揭露風險確認聲明書」裡有一段勾選內容，原本想整段拿掉來簡化流程，但那是法規要求聲明書必須呈現的結果，不能移除。最後把方向從「刪減內容」改成「重新設計文案跟呈現方式」，讓客戶更容易讀懂自己在勾什麼，而不是被迫略過。',
+  overview: {
+    heading: '重新梳理客戶與櫃台人員共同完成開戶的服務流程',
+    paragraphs: [
+      '開戶流程原本都靠紙本，從填資料、拍證件、電子簽名到送件，需由客戶與櫃台人員在臨櫃現場一起完成。',
+      '專案一開始的需求，是把現有表單搬到 iPad 上，但盤點流程與表單後，我發現真正的問題不在紙本，而是流程被拆成好幾段，客戶和櫃台很難在同一套流程裡接起來。所以我先和 PM 釐清需求、重新梳理開戶流程，把散落的步驟串成一條完整的數位流程，也和 RD 一起確認哪些做得到、哪些要調整，從規劃流程一路跟到產品上線。',
+    ],
   },
-  {
-    title: '多層次覆核不能省，但可以不讓客戶感覺到',
-    desc:  '高風險客戶的案件，除了業務主管跟分公司經理人，還要多一層區督導覆核，這段流程沒辦法省略。我把它留在後台審核鏈裡處理，確保複雜的覆核邏輯留在客戶看不到的地方，不拖慢客戶端「填寫→送件」的體感速度。',
-  },
-]
 
-const overview = [
-  {
-    title: 'Project Objective',
-    desc:  '永豐金證券的開戶流程仍高度仰賴紙本作業，客戶需要重複填寫資料，資料分散在多份文件中也容易出錯。這個專案的目標是透過 iPad 開戶系統，把紙本流程轉換成營業員能順利操作、客戶也能理解的數位服務。',
+  achievement: {
+    heading: <>完成證券開戶流程的數位化落地，<br />將原有紙本作業轉化為完整的 iPad 開戶服務</>,
+    items: [
+      { title: '流程數位化',   desc: '將傳統紙本開戶流程轉化為完整的 iPad 數位開戶服務，正式取代紙本作業。' },
+      { title: '服務流程整合', desc: '整合資料填寫、證件拍攝、電子簽名與送件狀態查詢，建立連續的開戶服務流程。' },
+      { title: '設計落地協作', desc: '與 PM、RD 共同釐清需求並處理技術限制；我也負責 HTML/CSS 切版，把設計直接做成網頁交給 RD 串接，確保設計能實際落地。' },
+    ],
+    // 固定比例、靠右裁切，讓兩個人完整露出
+    photo: { src: photoCounter, alt: '櫃台人員與客戶使用 iPad 進行開戶', className: 'aspect-[31/20] object-cover object-right' },
   },
-  {
-    title: 'Role & Deliverables',
-    desc:  '擔任 Product Designer，負責 UX 規劃、UI 設計與交付，並實際參與 HTML/CSS 切版。從盤點紙本表單的欄位邏輯開始，重新定義營業員與客戶的角色分工，產出可直接交付開發的設計文件。',
-  },
-  {
-    title: 'Challenges',
-    desc:  '金融業有許多限制不是設計能改動的：法規要求的揭露內容不能刪減，只能重新設計呈現方式；高風險客戶需要多一層區督導覆核，這段流程無法省略，只能確保它留在後台、不影響客戶端的體感速度。',
-  },
-  {
-    title: 'Outcomes & Impact',
-    desc:  '客戶端需簽署／確認的文件從 14 項精簡為 9 項，減少 36%。營業員不需要在紙本、拍照 App、系統之間來回切換，客戶減少重複填寫的負擔，作業流程也降低了紙本錯誤。',
-  },
-]
 
-const decisions = [
-  {
-    title: '重新篩選表單欄位，只留下數位流程真正需要的資訊',
-    desc:  '盤點原始紙本表單後，移除只是為了紙本審核存在、對客戶與櫃員沒有實際用途的欄位，讓填寫流程更精簡，也降低客戶重複填寫相同資料的負擔。',
-    image: imgForm,
-    alt:   '開戶申請基本資料表單截圖',
+  problem: {
+    heading: '流程被拆成好幾段，兩種角色的困境由此而來',
+    painPoints: [
+      {
+        title: '作業反覆切換',
+        role:  '櫃台人員',
+        desc:  '填表、拍證件、簽名分散在紙本、拍照 App 和系統之間，每一步都要切換工具、重新確認客戶資料；送件後也看不到進度。',
+      },
+      {
+        title: '重複填寫相同資料',
+        role:  '客戶',
+        desc:  '多份紙本文件要重複填寫相同的基本資料，文件一多，也分不清哪些需要自己處理。',
+      },
+    ],
+    summary: '前者拖慢臨櫃作業、讓客戶等待；後者讓客戶填得吃力，也容易填錯。',
   },
-  {
-    title: '把拍照、簽名整合進同一段流程',
-    desc:  '拍照跟簽名原本是紙本流程外的獨立動作，我把它們內嵌到 iPad 開戶流程裡，讓櫃員不需要切換工具或重新確認客戶身分，就能接續完成下一步。',
-    image: imgDocuments,
-    alt:   '開戶文件執行功能截圖',
+
+  challenge: {
+    heading: '螢幕變小、功能又有限制，怎麼把繁瑣的開戶流程重新排過？',
+    items: [
+      { title: '欄位這麼多，iPad 上怎麼看得清楚', desc: '紙本開戶表單是 A4 大小、欄位又多，iPad 螢幕小得多，照搬上去只會更難填。' },
+      { title: '客戶和櫃台人員怎麼接力',         desc: '同一台 iPad 要在客戶和櫃台人員之間來回傳遞，畫面得讓雙方都知道現在輪到誰、下一步要做什麼。' },
+      { title: '簽名板與相機必須用按鈕啟動',     desc: '電子簽名和證件拍攝都要先按按鈕，才會開啟簽名板和相機。按鈕放在哪裡，決定了櫃台人員會不會被迫跳出流程。' },
+    ],
   },
-  {
-    title: '加入送件狀態查詢，讓流程進度可被追蹤',
-    desc:  '送出後不再是黑盒子，櫃員可以直接在系統查看案件目前卡在哪個審核階段，不需要再另外用電話或紙本詢問後台，也能主動回應客戶的進度詢問。',
-    image: imgStatus,
-    alt:   '案件審核進度查詢畫面截圖',
+
+  research: {
+    heading: '先搞懂原本怎麼開戶，再決定哪裡要改。',
+    paragraphs: [
+      '專案初期，我先訪談櫃台人員與永豐的對接窗口，了解臨櫃開戶實際怎麼進行、哪些環節最常卡住；同時盤點紙本開戶表單，把開戶拆成幾個步驟，看客戶和櫃台人員各自在哪一步填寫、確認，又怎麼交棒到下一步。',
+      '整理完我發現，開戶不只是填表，還要確認資料、處理證件、簽名、送件。如果只是把紙本欄位照搬到 iPad，櫃台人員還是得切來切去，客戶也還是得重複填寫相同資料。',
+    ],
+    questionLead: '所以我把研究的問題，從「表單怎麼數位化」換成：',
+    question:     '原本散在各處的步驟，能不能串成一條不中斷的流程？',
   },
-]
 
-const outcomes = [
-  { role: '營業員',   desc: '不需要在紙本、拍照 App、系統之間來回切換，能更順暢地引導客戶完成開戶。' },
-  { role: '客戶',   desc: '減少重複填寫相同資料的負擔，開戶流程更清楚。' },
-  { role: '對作業流程', desc: '降低紙本錯誤，讓資料、附件與簽名更容易整合。' },
-]
+  insights: {
+    heading: '開戶卡住的地方，不在表單本身，而在步驟之間的交棒',
+    items: [
+      { title: '表單不是流程本身',         desc: '不能把紙本欄位直接搬上 iPad，要重新想先看什麼、後填什麼、怎麼操作。' },
+      { title: '開戶是一段連續任務',       desc: '拍證件、填資料、簽名不是分開的功能，而是同一段開戶流程裡的三個步驟。' },
+      { title: '數位體驗也要服務櫃台作業', desc: 'iPad 不只給客戶填資料，櫃台人員也要能順利接手、確認資料、送件。' },
+    ],
+  },
 
-/* ── helpers ─────────────────────────────────────────── */
+  strategy: {
+    heading: '先整理表單、再串起流程、最後讓進度看得見',
+    body:    '表單是每一步的基礎，所以先決定要填什麼、怎麼排；接著把拍證件、簽名、送件接進同一條流程，櫃台不用切換工具；最後補上送件後的進度查詢，讓流程走完也不會斷在黑盒子裡。',
+    items: [
+      { title: '表單重整', desc: '只留下客戶要經手的文件',     icon: ClipboardList },
+      { title: '流程串接', desc: '拍證件、簽名、送件接成一條', icon: Workflow },
+      { title: '進度可查', desc: '送件後隨時看得到審核狀態',   icon: SearchCheck },
+    ],
+  },
 
-function NumberBadge({ n }: { n: number }) {
-  return (
-    <div className="relative shrink-0 size-[32px] md:size-[38px] 3xl:size-[50px]">
-      <div className="absolute inset-0 rounded-full" style={{ backgroundColor: ACCENT }} />
-      <span className="absolute inset-0 flex items-center justify-center font-bold text-white
-                       text-[15px] md:text-[18px] 3xl:text-[26px]">
-        {n}
-      </span>
-    </div>
-  )
+  solution: {
+    heading: '3 項流程與介面決策',
+    features: [
+      {
+        label:   '表單重整',
+        title:   '只留下客戶需要經手的文件',
+        context: '紙本開戶文件很多，櫃台人員和後台的作業也混在客戶要處理的文件裡。表單是後面每一步的基礎，所以列為第一步。',
+        result:  '財富管理信託開戶文件從 14 項減為 9 項。',
+        before: {
+          title:  '紙本・開戶文件',
+          points: ['櫃台人員與後台作業的文件，混在客戶要處理的文件裡', '同樣的基本資料，要在多份文件重複填寫'],
+        },
+        after: {
+          title:  '改版・開戶文件',
+          points: ['不需要客戶經手的文件，移給櫃台人員或後台處理', '客戶要填、要簽的文件排在最前面', '基本資料只填一次，自動帶入各份文件'],
+        },
+        details: [
+          {
+            kind:  'table',
+            title: '移出的 5 份文件，各自去了哪裡',
+            desc:  '依文件該由誰處理，分成四種方式移出客戶流程。',
+            head:  ['文件', '處理方式'],
+            rows: [
+              ['業務人員開戶須知',              '移給櫃台人員'],
+              ['全國性繳費（稅）授權轉帳繳款申請書', '移到開戶經辦最後程序'],
+              ['財富管理業務申請扣款授權書',      '移到開戶經辦最後程序'],
+              ['領收確認簽收單',                '刪除，改由分公司掛號寄送'],
+              ['轉介徵詢同意書',                '合併進同意開戶聲明書'],
+            ],
+          },
+          {
+            kind:  'text',
+            title: '取捨：有一題想拿掉，但法規不允許',
+            desc:  '同意開戶聲明書裡的風險等級勾選題，要等 KYC 問卷算出分數才能帶入，判斷邏輯複雜。我們曾提出拿掉這一題，但它是聲明書在法規上必須呈現的結果，最後保留下來，改成依 KYC 分數自動帶入。',
+          },
+        ],
+      },
+      {
+        label:   '流程串接',
+        title:   '所有文件的操作，收進同一張清單',
+        context: '表單理清楚之後，下一步是把拍證件、填資料、簽名接成一條流程。每切換一次工具，流程就停一次，所以目標是讓客戶和櫃台在同一台 iPad 上交棒。',
+        result:  '客戶和櫃台在同一台 iPad 上接力，填寫、電子簽名、拍攝都在同一張文件清單完成。',
+        before: {
+          title:  '紙本・開戶作業',
+          points: ['客戶在紙上填寫、簽名', '櫃台另外用拍照 App 拍證件'],
+        },
+        after: {
+          title:  '改版・開戶作業',
+          points: ['從拍證件、填資料到簽名，在同一台 iPad 一路完成', '每份文件的操作都在清單上按按鈕啟動', '完成後狀態即時更新，看得到還差哪幾份'],
+        },
+        details: [
+          {
+            kind:  'flow',
+            title: '開戶流程：從來回切換工具，到同一台 iPad 接力',
+            desc:  '步驟數差不多，差別在於改版後每一步都在同一台 iPad 上，客戶和櫃台照著順序交棒就好。',
+            before: {
+              label: '紙本・開戶流程',
+              steps: [
+                { step: '拍照 App 拍證件', role: '櫃台' },
+                { step: '紙本填寫',     role: '客戶' },
+                { step: '紙本簽名',     role: '客戶' },
+                { step: '紙本送件',     role: '櫃台' },
+                { step: '打電話問進度', role: '櫃台' },
+              ],
+            },
+            // 依定稿畫面順序：先拍證件，再填基本資料
+            after: {
+              label: '改版・開戶流程',
+              steps: [
+                { step: '拍證件',     role: '櫃台' },
+                { step: '填寫資料',   role: '客戶' },
+                { step: '電子簽名',   role: '客戶' },
+                { step: '送件',       role: '櫃台' },
+                { step: '系統查進度', role: '櫃台' },
+              ],
+            },
+          },
+          {
+            kind:  'image',
+            title: '文件清單：還差哪幾份、下一步做什麼，一眼就看得出來',
+            desc:  '星號標出必填，「！」和「✓」標示是否完成；填寫、電子簽名、拍攝各有固定欄位，簽名板和相機都從這裡啟動。',
+            src:   imgDocList,
+            alt:   '開戶文件清單畫面，每份文件都有填寫、電子簽名、拍攝、列印按鈕',
+          },
+        ],
+      },
+      {
+        label:   '進度可查',
+        title:   '送件後看得到進度，被打斷也接得回去',
+        context: '流程串起來之後，最後要處理送件之後的事：案件卡在哪一關、被退件怎麼辦、開到一半被打斷怎麼接回去。',
+        result:  '送件後能查每一關的審核狀態，開戶中斷、退件、既有客戶加開，也都有對應的畫面。',
+        before: {
+          title:  '紙本・送件之後',
+          points: ['送出後看不到審核進度', '客戶問起進度，只能打電話問後台'],
+        },
+        after: {
+          title:  '改版・送件之後',
+          points: ['時間軸列出每一關的審核人員、到案時間與簽核狀態', '未完成的開戶可以繼續作業或註銷結案', '退件時要選擇原因，也能另外補充說明'],
+        },
+        details: [
+          {
+            kind:     'image',
+            title:    '審核進度：每一關的簽核狀態都看得到',
+            desc:     '時間軸列出每一關的營業員與到案時間，並以已簽核、簽核中、未簽核三種狀態區分。',
+            src:      imgProgress,
+            alt:      '審核進度畫面，時間軸列出每一關的營業員、到案時間與簽核狀態',
+            portrait: true,
+          },
+        ],
+      },
+    ],
+  },
+
+  outcome: {
+    heading: '整合後的服務流程，對櫃台、客戶與作業流程都帶來改善',
+    roles: [
+      { role: '櫃台人員', desc: '交棒點清楚，照著畫面上的順序就能帶客戶走完開戶。' },
+      { role: '客戶',     desc: '要經手的文件變少，也不用在每份文件重複填寫相同資料。' },
+      { role: '作業流程', desc: '移出客戶流程的文件，交由櫃台與後台處理，分工更清楚。' },
+    ],
+    // 沒有可公開的業績數據，以「流程改變」定義成功
+    criteriaIntro: '業務數據受 NDA 限制無法公開，所以我用四個流程上的改變，來確認專案達到目標：',
+    criteria: [
+      { goal: '流程整合',   looks: '填表、證件拍攝、簽名在同一台 iPad 完成，不再紙本和系統來回轉抄' },
+      { goal: '帳戶覆蓋',   looks: '證券、複委託、信用交易、財富管理、期貨 5 種開戶項目，都能用同一套流程辦理' },
+      { goal: '進度可追蹤', looks: '送件後櫃台人員能直接查看案件目前在哪個審核階段' },
+      { goal: '正式上線',   looks: '在臨櫃實際使用，取代紙本作業' },
+    ],
+  },
+
+  reflection: {
+    intro: '這個專案讓我更確定一件事：把紙本數位化，重新設計的核心是「人與流程」的關係，畫面從紙本換成螢幕只是表面。',
+    items: [
+      { title: '送件狀態查詢應該更早進第一版原型', desc: '對櫃台人員來說，「知道案件進度」跟「完成填寫」一樣重要，兩者原本應該在同一輪研究裡一起被驗證，不要等到後期才補上。' },
+      { title: '上線前先設好追蹤指標',             desc: '如果重做，我會在上線前就記錄紙本時期的單戶處理時間和補件率，上線後才有對照組證明成效。' },
+      { title: '業界後來的做法值得參考',           desc: '臨櫃平板化是證券開戶數位轉型的第一步。現在主要券商都已提供全線上開戶，例如元大證券會自動儲存填寫進度、也能在 App 查進度和補件，解決的正是紙本時代「一次要填完」和「送出後不知道進度」的痛點。' },
+    ],
+  },
 }
 
 export function SinotradePage() {
-  return (
-    <div className="w-full bg-white">
-
-      {/* ── 1. Intro ────────────────────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pt-[40px] pb-[20px]
-                           md:gap-[20px] md:pt-[50px]
-                           3xl:pt-[50px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" animate="visible"
-          className="font-noto text-[#767676]
-                     text-[14px] md:text-[18px] 3xl:text-[24px]">
-          Process Redesign
-        </motion.p>
-
-        <motion.h1
-          variants={fadeUp} initial="hidden" animate="visible"
-          transition={{ delay: 0.08 }}
-          className="font-noto-tc font-bold text-black
-                     text-[22px] leading-[1.5]
-                     md:text-[32px]
-                     xl:text-[38px]
-                     3xl:text-[48px]">
-          證券開戶從「紙本填寫」轉為「專業且快速的數位服務體驗」，同時優化客戶安心感與櫃台作業效率
-        </motion.h1>
-
-        <motion.hr
-          variants={fadeUp} initial="hidden" animate="visible"
-          transition={{ delay: 0.12 }}
-          className="border-t border-[#d9d9d9] w-full" />
-
-        <motion.div
-          variants={fadeUp} initial="hidden" animate="visible"
-          transition={{ delay: 0.16 }}
-          className="flex flex-wrap gap-[24px] md:gap-[48px]">
-          {[
-            { label: '專案時程', value: '2018.02 - 2019.07', font: 'font-noto' },
-            { label: '專案角色', value: 'Product Designer',   font: 'font-noto' },
-            { label: '負責項目', value: 'UX規劃、UI設計與交付、Html/CSS撰寫', font: 'font-noto-tc' },
-          ].map(({ label, value, font }) => (
-            <div key={label} className="flex flex-col gap-[4px]">
-              <p className="font-noto text-[#767676]
-                            text-[12px] md:text-[14px] 3xl:text-[18px]">
-                {label}
-              </p>
-              <p className={`${font} font-medium text-black
-                            text-[14px] md:text-[18px] 3xl:text-[22px]`}>
-                {value}
-              </p>
-            </div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ── 2. Hero Image ─────────────────────────────── */}
-      <section className="w-full mt-[20px] md:mt-[28px]">
-        <img
-          src={heroTablet}
-          alt="數位開戶 iPad 產品示意圖"
-          className="w-full object-cover
-                     h-[240px] md:h-[400px] xl:h-[480px] 3xl:h-[550px]"
-        />
-      </section>
-
-      {/* ── 2.5 Project Overview ──────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pt-[40px] pb-[20px]
-                           md:gap-[20px] md:pt-[50px] md:pb-[30px]
-                           3xl:pt-[64px] 3xl:pb-[40px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          專案總覽
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="grid grid-cols-1 gap-[12px]
-                     md:grid-cols-2 md:gap-[16px]
-                     3xl:gap-[20px]">
-          {overview.map((o, i) => (
-            <div key={o.title}
-                 className="bg-[#fafafa] flex flex-col gap-[8px]
-                            rounded-[12px] md:rounded-[20px]
-                            p-[20px] md:p-[24px] 3xl:p-[30px]">
-              <div className="flex items-center gap-[10px]">
-                <span className="font-poppins font-bold
-                                  text-[15px] md:text-[18px] 3xl:text-[26px]"
-                      style={{ color: ACCENT }}>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <p className="font-poppins font-medium text-black
-                              text-[15px] md:text-[18px] 3xl:text-[26px]">
-                  {o.title}
-                </p>
-              </div>
-              <p className="font-noto-tc text-black leading-[1.7]
-                            text-[13px] md:text-[15px] 3xl:text-[20px]">
-                {o.desc}
-              </p>
-            </div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ── 3. Background ─────────────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[12px] py-[40px]
-                           md:gap-[16px] md:py-[50px]
-                           3xl:gap-[20px] 3xl:py-[64px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          專案背景
-        </motion.p>
-        <motion.h2
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc font-bold text-black
-                     text-[18px] leading-[1.5]
-                     md:text-[26px] xl:text-[30px] 3xl:text-[40px]">
-          公司正在推動數位轉型，但開戶流程仍停留在紙本作業
-        </motion.h2>
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="flex flex-col gap-[16px] max-w-[1100px]">
-          <p className="font-noto-tc text-black leading-[1.9]
-                        text-[14px] md:text-[17px] 3xl:text-[22px]">
-            傳統證券開戶流程高度仰賴紙本表單。客戶需要重複填寫相同資料，營業員也必須協助整理身分證件、附件、簽名與後續送件狀態。當資料分散在多份紙本與附件中，不只容易出錯，也讓案件進度難以追蹤。
-          </p>
-          <p className="font-noto-tc text-black leading-[1.9]
-                        text-[14px] md:text-[17px] 3xl:text-[22px]">
-            永豐金證券希望透過 iPad 開戶系統，讓營業員能協助客戶完成表單填寫、證件拍攝與電子簽名，並讓後續送件與審核流程更容易管理。
-          </p>
-          <p className="font-noto-tc text-black leading-[1.9]
-                        text-[14px] md:text-[17px] 3xl:text-[22px]">
-            把紙本表單搬到螢幕上很容易，真正困難的是先釐清複雜的欄位邏輯，再把它轉化為營業員能順利操作、客戶也能理解的數位流程。
-          </p>
-        </motion.div>
-      </section>
-
-      {/* ── 4. Counter Photo ───────────────────────────── */}
-      <section className="section-px w-full pb-[40px] md:pb-[50px]">
-        <motion.img
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          src={photoCounter}
-          alt="營業員與客戶使用 iPad 進行開戶"
-          className="block w-full object-cover
-                     rounded-[16px] md:rounded-[24px]"
-        />
-      </section>
-
-      {/* ── 5. Goals ───────────────────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pb-[40px]
-                           md:gap-[24px] md:pb-[50px]
-                           3xl:gap-[30px] 3xl:pb-[64px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          專案目標
-        </motion.p>
-        <motion.h2
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc font-bold text-black
-                     text-[18px] leading-[1.5]
-                     md:text-[26px] xl:text-[30px] 3xl:text-[40px]">
-          將傳統紙本開戶流程轉化為一致且可執行的數位服務體驗
-        </motion.h2>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9] max-w-[1100px]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          透過數位轉型，逐步取代紙本開戶流程，以 iPad 作為臨櫃開戶載體，提升開戶效率。紙本表單搬到數位介面只是最表面的改動，這個專案真正要做的是重新設計整體服務流程，讓客戶、櫃檯人員與後台審核都能在同一套流程中順利協作。
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="bg-[#fafafa] flex flex-col gap-[12px] md:gap-[16px]
-                     rounded-[16px] md:rounded-[24px]
-                     p-[20px] md:p-[30px] xl:p-[40px]">
-          {goals.map((goal) => (
-            <div key={goal.title}
-                 className="bg-white flex items-start gap-[8px]
-                            rounded-[12px] md:rounded-[20px]
-                            px-[16px] py-[14px] md:px-[24px] md:py-[18px] 3xl:px-[30px] 3xl:py-[20px]">
-              <span className="shrink-0 text-black text-[14px] md:text-[18px] 3xl:text-[24px]">➤</span>
-              <div className="flex flex-col gap-[2px] md:gap-[4px]">
-                <p className="font-noto-tc font-bold text-black
-                              text-[14px] md:text-[18px] 3xl:text-[24px]">
-                  {goal.title}
-                </p>
-                <p className="font-noto-tc text-black leading-[1.6]
-                              text-[13px] md:text-[15px] 3xl:text-[20px]">
-                  {goal.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ── 6. Understanding Users ────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pb-[40px]
-                           md:gap-[20px] md:pb-[50px]
-                           3xl:gap-[24px] 3xl:pb-[64px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          了解使用者
-        </motion.p>
-        <motion.h2
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc font-bold text-black
-                     text-[18px] leading-[1.5]
-                     md:text-[26px] xl:text-[30px] 3xl:text-[40px]">
-          操作速度快不代表專業，真正決定專業感與快速感的，是流程節奏與角色分工。
-        </motion.h2>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          我先與 PM 一起重新盤點整個開戶流程。
-        </motion.p>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          觀察營業員實際操作紙本流程後發現，「專業感」被打斷的關鍵時刻，多半發生在紙本、拍照與系統之間來回確認的當下，操作速度快慢反而不是重點——每一次切換，都是一次讓客戶感受到流程不順暢的機會。
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="flex flex-col gap-[8px]">
-          <p className="font-noto-tc text-black leading-[1.8]
-                        text-[14px] md:text-[17px] 3xl:text-[22px]">
-            <span className="font-semibold">① 研究紙本表單</span>：了解每份文件真正用途。
-          </p>
-          <p className="font-noto-tc text-black leading-[1.8]
-                        text-[14px] md:text-[17px] 3xl:text-[22px]">
-            <span className="font-semibold">② 流程盤點</span>：把整個流程重新梳理過一次，不照搬紙本順序直接搬上 iPad。
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="bg-[#fafafa] rounded-[16px] md:rounded-[24px]
-                     px-[20px] py-[20px] md:px-[40px] md:py-[24px]">
-          <p className="font-noto-tc text-black leading-[1.8] text-center
-                        text-[13px] md:text-[16px] xl:text-[18px] 3xl:text-[24px]">
-            客戶 → 確認身分 → 拍攝證件 → 填寫資料 → 電子簽名 → 送件 → 查詢送審
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="flex flex-col gap-[8px]">
-          <p className="font-noto-tc text-black leading-[1.8]
-                        text-[14px] md:text-[17px] 3xl:text-[22px]">
-            <span className="font-semibold">③ 定義角色</span>：我開始區分：客戶需要完成什麼？櫃員需要完成什麼？哪些事情可以由系統完成？
-          </p>
-          <p className="font-noto-tc text-black leading-[1.8]
-                        text-[14px] md:text-[17px] 3xl:text-[22px]">
-            這讓後續流程有了重新設計的基礎。
-          </p>
-        </motion.div>
-      </section>
-
-      {/* ── 7. Problem Definition ─────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pb-[40px]
-                           md:gap-[20px] md:pb-[50px]
-                           3xl:gap-[24px] 3xl:pb-[64px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          問題定義
-        </motion.p>
-        <motion.h2
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc font-semibold text-black
-                     text-[20px] leading-[1.5]
-                     md:text-[28px] xl:text-[32px] 3xl:text-[44px]">
-          真正的問題不是紙本，而是服務流程沒有被重新設計。
-        </motion.h2>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          我整理出三個核心問題
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="grid grid-cols-1 gap-[12px]
-                     md:grid-cols-3 md:gap-[16px]
-                     3xl:gap-[20px]">
-          {problems.map((p, i) => (
-            <div key={p.title}
-                 className="bg-[#fafafa] flex flex-col gap-[4px]
-                            rounded-[12px] md:rounded-[20px]
-                            p-[20px] md:p-[24px] 3xl:p-[30px]">
-              <div className="flex items-center gap-[8px]">
-                <NumberBadge n={i + 1} />
-                <p className="font-noto-tc font-medium text-black flex-1
-                              text-[15px] md:text-[18px] 3xl:text-[28px]">
-                  {p.title}
-                </p>
-              </div>
-              <p className="font-noto-tc text-black leading-[1.6]
-                            pl-[40px] text-[13px]
-                            md:pl-[46px] md:text-[15px]
-                            3xl:pl-[58px] 3xl:text-[20px]">
-                {p.desc}
-              </p>
-            </div>
-          ))}
-        </motion.div>
-
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          因此，我將設計目標定義為：
-        </motion.p>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc font-semibold text-black
-                     text-[16px] leading-[1.5]
-                     md:text-[22px] xl:text-[26px] 3xl:text-[36px]">
-          「重新設計的對象是開戶流程，不是表單本身。」
-        </motion.p>
-      </section>
-
-      {/* ── 8. Design Principles ──────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pb-[40px]
-                           md:gap-[20px] md:pb-[50px]
-                           3xl:gap-[24px] 3xl:pb-[64px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          設計原則
-        </motion.p>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          根據上述問題，我建立了三個設計原則。
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="flex flex-col gap-[12px] md:gap-[16px]">
-          {principles.map((p, i) => (
-            <div key={p.title}
-                 className="bg-[#fafafa] flex flex-col gap-[4px]
-                            rounded-[12px] md:rounded-[20px]
-                            p-[20px] md:p-[24px] 3xl:p-[30px]">
-              <div className="flex items-center gap-[8px]">
-                <NumberBadge n={i + 1} />
-                <p className="font-noto-tc font-medium text-black flex-1
-                              text-[15px] md:text-[18px] 3xl:text-[28px]">
-                  {p.title}
-                </p>
-              </div>
-              <p className="font-noto-tc text-black leading-[1.6]
-                            pl-[40px] text-[13px]
-                            md:pl-[46px] md:text-[15px]
-                            3xl:pl-[58px] 3xl:text-[20px]">
-                {p.desc}
-              </p>
-            </div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ── 8.5 Challenges & Trade-offs ────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pb-[40px]
-                           md:gap-[20px] md:pb-[50px]
-                           3xl:gap-[24px] 3xl:pb-[64px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          挑戰與取捨
-        </motion.p>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          金融業有很多限制不是設計能改動的，真正的工作是分辨哪些是可以簡化的，哪些不行、只能換個方式處理。
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="flex flex-col gap-[12px] md:gap-[16px]">
-          {challenges.map((c) => (
-            <div key={c.title}
-                 className="bg-[#fafafa] flex items-start gap-[8px]
-                            rounded-[12px] md:rounded-[20px]
-                            p-[20px] md:p-[24px] 3xl:p-[30px]">
-              <span className="shrink-0 text-black text-[14px] md:text-[18px] 3xl:text-[24px]">➤</span>
-              <div className="flex flex-col gap-[4px]">
-                <p className="font-noto-tc font-medium text-black
-                              text-[15px] md:text-[18px] 3xl:text-[28px]">
-                  {c.title}
-                </p>
-                <p className="font-noto-tc text-black leading-[1.6]
-                              text-[13px]
-                              md:text-[15px]
-                              3xl:text-[20px]">
-                  {c.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ── 8.6 Method: Paper-to-Digital Mapping ───────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pb-[40px]
-                           md:gap-[20px] md:pb-[50px]
-                           3xl:gap-[24px] 3xl:pb-[64px]">
-        <motion.h2
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc font-bold text-black
-                     text-[18px] leading-[1.5]
-                     md:text-[26px] xl:text-[30px] 3xl:text-[40px]">
-          我怎麼把紙本欄位邏輯，轉換成數位表單
-        </motion.h2>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9] max-w-[1100px]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          開戶文件裡有不少像 W-8BEN 這類法規要求的紙本表格。我逐一標註每個紙本欄位，確認它在數位流程裡對應到哪個欄位、是否能合併或省略，再決定新表單的呈現順序，而不是直接把紙本版面原封不動搬上螢幕。
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="bg-[#fafafa] flex items-center justify-center
-                     rounded-[16px] md:rounded-[24px]
-                     p-[16px] md:p-[24px] xl:p-[32px]">
-          <img
-            src={imgMapping}
-            alt="紙本表單欄位對應數位表單的標註示意圖"
-            className="block w-full max-w-[1100px] rounded-[8px] md:rounded-[12px]"
-          />
-        </motion.div>
-      </section>
-
-      {/* ── 9. Design Decisions ───────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pb-[40px]
-                           md:gap-[20px] md:pb-[50px]
-                           3xl:gap-[24px] 3xl:pb-[64px]">
-        <div className="flex flex-col gap-[40px] md:gap-[50px]">
-          {decisions.map((d) => (
-            <div key={d.title} className="flex flex-col gap-[12px] md:gap-[16px]">
-              <motion.p
-                variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                className="font-noto-tc font-semibold text-black
-                           text-[16px] leading-[1.5]
-                           md:text-[22px] xl:text-[26px] 3xl:text-[36px]">
-                {d.title}
-              </motion.p>
-              <motion.p
-                variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                className="font-noto-tc text-black leading-[1.9]
-                           text-[14px] md:text-[17px] 3xl:text-[22px]">
-                {d.desc}
-              </motion.p>
-              {d.image && (
-                <motion.div
-                  variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  className="bg-[#fafafa] flex items-center justify-center
-                             rounded-[16px] md:rounded-[24px]
-                             p-[16px] md:p-[24px] xl:p-[32px]">
-                  <img
-                    src={d.image}
-                    alt={d.alt}
-                    className="block w-full max-w-[900px] rounded-[8px] md:rounded-[12px]"
-                  />
-                </motion.div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── 10. Outcomes ───────────────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pb-[40px]
-                           md:gap-[20px] md:pb-[50px]
-                           3xl:gap-[24px] 3xl:pb-[64px]">
-        <motion.h2
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc font-semibold text-black
-                     text-[18px] leading-[1.5]
-                     md:text-[24px] xl:text-[28px] 3xl:text-[36px]">
-          整合後的服務流程，對三個角色都帶來改善
-        </motion.h2>
-
-        <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="grid grid-cols-1 gap-[12px]
-                     md:grid-cols-3 md:gap-[16px]
-                     3xl:gap-[20px]">
-          {outcomes.map((o) => (
-            <div key={o.role}
-                 className="bg-[#fafafa] flex flex-col gap-[4px]
-                            rounded-[12px] md:rounded-[20px]
-                            px-[24px] py-[18px] md:px-[40px] md:py-[24px] 3xl:px-[50px] 3xl:py-[30px]">
-              <p className="font-noto-tc font-medium text-black
-                            text-[16px] md:text-[22px] 3xl:text-[32px]">
-                {o.role}
-              </p>
-              <p className="font-noto-tc text-black leading-[1.6]
-                            text-[13px] md:text-[16px] 3xl:text-[24px]">
-                {o.desc}
-              </p>
-            </div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ── 11. Reflection ───────────────────────────────── */}
-      <section className="section-px flex flex-col
-                           gap-[16px] pb-[80px]
-                           md:gap-[20px] md:pb-[100px]
-                           3xl:gap-[24px] 3xl:pb-[120px]">
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto text-[#767676]
-                     text-[13px] md:text-[16px] 3xl:text-[20px]">
-          學習與反思
-        </motion.p>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          這個專案讓我更確定一件事：把紙本數位化，重新設計的核心是「人與流程」的關係，畫面從紙本換成螢幕只是表面。
-        </motion.p>
-        <motion.p
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="font-noto-tc text-black leading-[1.9]
-                     text-[14px] md:text-[17px] 3xl:text-[22px]">
-          如果重新設計一次，我會把送件狀態查詢提早納入第一版原型，不要等到後期才補上。對營業員來說，「知道案件進度」跟「完成填寫」一樣重要，兩者原本應該在同一輪研究裡一起被驗證。
-        </motion.p>
-      </section>
-
-    </div>
-  )
+  return <CaseStudyTemplate data={data} />
 }

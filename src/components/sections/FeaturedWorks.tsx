@@ -19,11 +19,7 @@ const projects: Project[] = [
   {
     id: 'sinotrade',
     slug: 'sinotrade',
-    title: [
-      '證券開戶從「紙本填寫」轉為「專業且快速的',
-      '數位服務體驗」， 同時優化客戶安心感與櫃台',
-      '作業效率',
-    ],
+    title: ['證券開戶從「紙本填寫」轉為「數位服務體驗」'],
     tags: ['金融科技', '數位轉型', '流程設計'],
     image: projectSinotrade,
     bgStyle: { backgroundColor: '#edeef2' },
@@ -32,7 +28,7 @@ const projects: Project[] = [
   {
     id: 'wdopa',
     slug: 'counter-service',
-    title: ['分散的櫃台服務流程', '整合為一段可被執行的服務體驗'],
+    title: ['將分散的櫃台服務流程，', '整合成一條不用切換的服務體驗'],
     tags: ['服務設計', '政府服務', '資訊架構'],
     image: projectWdopa,
     bgStyle: { backgroundColor: '#edeef2' },
@@ -40,7 +36,7 @@ const projects: Project[] = [
   {
     id: 'daiso',
     slug: 'daiso',
-    title: ['複雜的費用核銷規則轉化為可被理解的', '申請流程，降低跨部門協作成本'],
+    title: ['把複雜的費用核銷規則，', '變成員工看得懂的申請流程'],
     tags: ['企業內部系統', '流程設計', '簽核流程'],
     image: projectDaiso,
     bgStyle: { backgroundColor: '#edeef2' },
